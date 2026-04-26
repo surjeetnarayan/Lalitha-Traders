@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lalitha Traders - Full Store System</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI, Arial, sans-serif;}
+body{background:#eef1f5;}
+
+.header{
+background:linear-gradient(90deg,#131921,#232f3e);
+color:white;
+padding:14px 18px;
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo img{height:50px;}
+
+.search-bar{flex:1;}
+.search-bar input{
+width:100%;
+padding:11px;
+border-radius:8px;
+border:none;
+font-size:16px;
+}
+
+button{
+cursor:pointer;
+border:none;
+border-radius:8px;
+padding:9px 14px;
+font-weight:bold;
+}
+
+.cart-btn{background:#febd69;color:black;}
+.login-btn{background:#4CAF50;color:white;}
+.logout-btn{background:#d9534f;color:white;}
+
+.banner{
+background:#fff;
+text-align:center;
+}
+
+.banner img{
+width:100%;
+max-height:350px;
+object-fit:contain;
+}
+
+.dashboard{
+background:white;
+padding:15px;
+margin:15px;
+border-radius:12px;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.container{
+display:flex;
+padding:15px;
+gap:15px;
+}
+
+.sidebar{
+width:230px;
+background:white;
+padding:15px;
+border-radius:12px;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.sidebar div{
+padding:10px;
+border-bottom:1px solid #eee;
+cursor:pointer;
+}
+
+.sidebar div:hover{
+background:#f3f3f3;
+}
+
+.products{
+flex:1;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;
+}
+
+.product{
+background:white;
+padding:12px;
+border-radius:14px;
+box-shadow:0 5px 14px rgba(0,0,0,0.12);
+text-align:center;
+transition:0.2s;
+}
+
+.product:hover{transform:translateY(-5px);} 
+
+.product img{
+width:100%;
+height:160px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.price{color:#0a8f3c;font-weight:bold;margin:8px 0;font-size:17px;}
+
+.footer{
+background:#131921;
+color:white;
+text-align:center;
+padding:16px;
+margin-top:20px;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 20px;
+border-radius:50px;
+font-size:18px;
+text-decoration:none;
+}
+
+.login-box{
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+text-align:center;
+z-index:1000;
+}
+
+.login-box input{
+padding:10px;
+width:230px;
+margin:8px 0;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+@media(max-width:800px){
+.container{flex-direction:column;}
+.sidebar{width:100%;}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+<div class="logo">
+<img src="C:/Users/surje/Downloads/logo.png" alt="LT Logo">
+</div>
+
+<div class="search-bar">
+<input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts()">
+</div>
+
+<button class="login-btn" onclick="openLogin()">Login</button>
+<button class="logout-btn" onclick="logoutUser()">Logout</button>
+<button class="cart-btn">Cart (<span id="cartCount">0</span>)</button>
+</div>
+
+<div class="banner">
+<img src="C:/Users/surje/Downloads/banner.png" alt="Lalitha Traders Banner">
+</div>
+
+<div class="dashboard">
+<h3>📊 Sales Dashboard</h3>
+<p>Total Orders: <span id="orders">0</span></p>
+<p>Total Items in Cart: <span id="items">0</span></p>
+</div>
+
+<div class="container">
+
+<div class="sidebar">
+<h3>Categories</h3>
+<div onclick="filterCategory('all')">🛒 All</div>
+<div onclick="filterCategory('rice')">🍚 Rice</div>
+<div onclick="filterCategory('masala')">🌶️ Masala</div>
+<div onclick="filterCategory('juice')">🧃 Juices</div>
+<div onclick="filterCategory('ice')">🍦 Ice Cream</div>
+</div>
+
+t <div class="products" id="productList"> 
+<!-- RICE -->
+ <div class="product" data-name="aruna rice" data-category="rice">
+ <img src="https://images.unsplash.com/photo-1516684669134-de6f7c473a2a"> 
+<h3>Aruna Rice</h3>
+ <div class="price">₹1080</div> 
+<button onclick="addToCart('Aruna Rice ₹1080')">Add to Cart</button> 
+</div> 
+
+<div class="product" data-name="blue krishna rice" data-category="rice"> 
+<img src="https://images.unsplash.com/photo-1604908177453-7462950a6a3b"> 
+<h3>Blue Krishna Rice</h3>
+ <div class="price">₹1500</div> 
+<button onclick="addToCart('Blue Krishna Rice ₹1500')">Add to Cart</button>
+ </div>
+
+ <div class="product" data-name="orange krishna rice" data-category="rice"> 
+<img src="https://images.unsplash.com/photo-1586201375761-83865001e31c">
+ <h3>Orange Krishna Rice</h3> 
+<div class="price">₹1350</div> 
+<button onclick="addToCart('Orange Krishna Rice ₹1350')">Add to Cart</button>
+ </div>
+
+ <!-- MASALA (auto pattern for both sizes) --> 
+<div class="product" data-name="turmeric 20g" data-category="masala">
+ <img src="https://images.unsplash.com/photo-1604908554007-9e8a9e5078e1">
+ <h3>Turmeric 20g</h3>
+ <div class="price">₹10</div> 
+<button onclick="addToCart('Turmeric 20g')">Add to Cart</button>
+ </div> 
+
+<div class="product" data-name="turmeric 50g" data-category="masala">
+ <img src="https://images.unsplash.com/photo-1604908554007-9e8a9e5078e1">
+ <h3>Turmeric 50g</h3>
+ <div class="price">₹20</div>
+ <button onclick="addToCart('Turmeric 50g')">Add to Cart</button>
+ </div> 
+
+<div class="product" data-name="chilli 20g" data-category="masala">
+ <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d">
+ <h3>Chilli Powder 20g</h3> 
+ <div class="price">₹10</div>
+ <button onclick="addToCart('Chilli 20g')">Add to Cart</button>
+ </div>
+
+<div class="product" data-name="chilli 50g" data-category="masala"> 
+<img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d">
+ <h3>Chilli Powder 50g</h3> <div class="price">₹20</div> 
+<button onclick="addToCart('Chilli 50g')">Add to Cart</button> 
+</div> 
+
+<div class="product" data-name="sambar 20g" data-category="masala">
+ <img src="https://images.unsplash.com/photo-1615485299973-1e4f1b8b8e7a">
+ <h3>Sambar Powder 20g</h3> 
+<div class="price">₹10</div>
+ <button onclick="addToCart('Sambar 20g')">Add to Cart</button>
+ </div> 
+
+<div class="product" data-name="sambar 50g" data-category="masala"> 
+<img src="https://images.unsplash.com/photo-1615485299973-1e4f1b8b8e7a">
+ <h3>Sambar Powder 50g</h3> 
+<div class="price">₹35</div> 
+<button onclick="addToCart('Sambar 50g')">Add to Cart</button>
+ </div> 
+
+<!-- JUICES --> 
+<div class="product" data-name="mango juice" data-category="juice"> 
+<img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888">
+ <h3>Mango Juice</h3> 
+<div class="price">₹10</div> 
+<button onclick="addToCart('Mango Juice ₹20')">Add to Cart</button> 
+</div>
+
+ <div class="product" data-name="orange juice" data-category="juice"> 
+<img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b">
+ <h3>Orange Juice</h3> <div class="price">₹10</div>
+ <button onclick="addToCart('Orange Juice ₹20')">Add to Cart</button> 
+</div>
+
+ <!-- ICE CREAM --> 
+
+<div class="product" data-name="cup ice" data-category="ice"> 
+<img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb">
+ <h3>Cup Ice Cream</h3> <div class="price">₹10</div>
+ <button onclick="addToCart('Cup Ice ₹10')">Add to Cart</button> 
+</div> 
+
+<div class="product" data-name="mango bar" data-category="ice">
+ <img src="https://images.unsplash.com/photo-1590080874088-eec64895b423">
+ <h3>Mango Bar</h3> <div class="price">₹15</div>
+ <button onclick="addToCart('Mango Bar ₹15')">Add to Cart</button>
+ </div>
+
+ <div class="product" data-name="grape bar" data-category="ice"> 
+<img src="https://images.unsplash.com/photo-1595475038784-bbe439ff41e6"> 
+<h3>Grape Bar</h3> <div class="price">₹15</div>
+ <button onclick="addToCart('Grape Bar ₹15')">Add to Cart</button> 
+</div>
+
+ <div class="product" data-name="orange bar" data-category="ice">
+ <img src="https://images.unsplash.com/photo-1580910051074-3eb694886505">
+ <h3>Orange Bar</h3> <div class="price">₹15</div>
+ <button onclick="addToCart('Orange Bar ₹15')">Add to Cart</button> 
+</div>
+
+<div class="product" data-name="choco bar" data-category="ice"> 
+<img src="https://images.unsplash.com/photo-1541599540903-216a46ca1dc0"> 
+<h3>Choco Bar</h3> <div class="price">₹25</div>
+ <button onclick="addToCart('Choco Bar ₹25')">Add to Cart</button> 
+</div> 
+
+<div class="product" data-name="vanilla cone" data-category="ice"> 
+<img src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc">
+ <h3>Vanilla Cone</h3> <div class="price">₹35</div> 
+<button onclick="addToCart('Vanilla Cone ₹35')">Add to Cart</button> 
+</div> 
+
+<div class="product" data-name="butterscotch cone" data-category="ice"> 
+<img src="https://images.unsplash.com/photo-1567206563064-6f60f40a2b57"> 
+<h3>Butterscotch Cone</h3> <div class="price">₹40</div>
+ <button onclick="addToCart('Butterscotch Cone ₹40')">Add to Cart</button>
+ </div> 
+
+<div class="product" data-name="badam kulfi" data-category="ice"> 
+<img src="https://images.unsplash.com/photo-1625944525903-bfb0f53b3c35"> 
+<h3>Badam Kulfi</h3> <div class="price">₹35</div>
+ <button onclick="addToCart('Badam Kulfi ₹35')">Add to Cart</button> 
+</div>
+
+<div class="product" data-name="pistha kulfi" data-category="ice"> 
+<img src="https://images.unsplash.com/photo-1625944525903-bfb0f53b3c35"> 
+<h3>Pistha Kulfi</h3> <div class="price">₹35</div>
+ <button onclick="addToCart('Pistha Kulfi ₹35')">Add to Cart</button> 
+</div>
+
+<div class="product" data-name="kesar pistha kulfi" data-category="ice"> 
+<img src="https://images.unsplash.com/photo-1625944525903-bfb0f53b3c35"> 
+<h3>Kesar Pistha Kulfi</h3> <div class="price">₹50</div>
+ <button onclick="addToCart('Kesar Pistha Kulfi ₹50')">Add to Cart</button> 
+</div> 
+
+</div> 
+
+</div>
+
+<a class="whatsapp" id="whatsappBtn" href="#" target="_blank">
+WhatsApp Order
+</a>
+
+<div id="loginBox" class="login-box">
+
+<h2>User Login</h2>
+
+<input type="text" id="username" placeholder="Enter Username">
+
+<input type="password" id="password" placeholder="Enter Password">
+
+<br>
+
+<button onclick="registerUser()">Register</button>
+<button onclick="loginUser()">Login</button>
+<button onclick="closeLogin()">Close</button>
+
+<p id="loginStatus"></p>
+
+</div>
+
+<script>
+
+let cart = [];
+
+function addToCart(item){
+cart.push(item);
+
+document.getElementById("cartCount").textContent = cart.length;
+document.getElementById("items").textContent = cart.length;
+
+updateWhatsAppLink();
+}
+
+function searchProducts(){
+let input = document.getElementById("searchInput").value.toLowerCase();
+let products = document.querySelectorAll(".product");
+
+products.forEach(p=>{
+let name = p.getAttribute("data-name");
+
+if(name.includes(input)){
+p.style.display = "block";
+}else{
+p.style.display = "none";
+}
+});
+}
+
+function filterCategory(category){
+let products = document.querySelectorAll(".product");
+
+products.forEach(p=>{
+if(category === "all"){
+p.style.display = "block";
+}
+else if(p.getAttribute("data-category") === category){
+p.style.display = "block";
+}
+else{
+p.style.display = "none";
+}
+});
+}
+
+function updateWhatsAppLink(){
+
+let loggedUser = localStorage.getItem("loggedInUser");
+
+if(!loggedUser){
+alert("Please login before ordering");
+openLogin();
+return;
+}
+
+let message = "Order from Lalitha Traders (User: " + loggedUser + "):%0A";
+
+if(cart.length === 0){
+message += "No items in cart";
+}else{
+cart.forEach((item, index)=>{
+message += (index + 1) + ". " + item + "%0A";
+});
+}
+
+let phone = "919952449826";
+
+let url = "https://wa.me/" + phone + "?text=" + message;
+
+document.getElementById("whatsappBtn").href = url;
+
+}
+
+function openLogin(){
+document.getElementById("loginBox").style.display = "block";
+}
+
+function closeLogin(){
+document.getElementById("loginBox").style.display = "none";
+}
+
+function registerUser(){
+
+let user = document.getElementById("username").value.trim();
+let pass = document.getElementById("password").value.trim();
+
+if(user === "" || pass === ""){
+document.getElementById("loginStatus").innerText =
+"Enter username and password";
+return;
+}
+
+localStorage.setItem(user, pass);
+
+document.getElementById("loginStatus").innerText =
+"Account created successfully ✅";
+
+}
+
+function loginUser(){
+
+let user = document.getElementById("username").value.trim();
+let pass = document.getElementById("password").value.trim();
+
+let savedPass = localStorage.getItem(user);
+
+if(savedPass === pass){
+
+document.getElementById("loginStatus").innerText =
+"Login successful 🎉";
+
+localStorage.setItem("loggedInUser", user);
+
+document.querySelector(".login-btn").innerText =
+"Welcome " + user;
+
+setTimeout(()=>{
+closeLogin();
+},1000);
+
+}
+else{
+
+document.getElementById("loginStatus").innerText =
+"Invalid username or password ❌";
+
+}
+
+}
+
+function logoutUser(){
+
+localStorage.removeItem("loggedInUser");
+
+document.querySelector(".login-btn").innerText = "Login";
+
+alert("Logged out successfully");
+
+}
+
+window.onload = function(){
+
+let savedUser = localStorage.getItem("loggedInUser");
+
+if(savedUser){
+document.querySelector(".login-btn").innerText =
+"Welcome " + savedUser;
+}
+
+}
+
+</script>
+
+<div class="footer">
+© 2026 Lalitha Traders | Retail Store 🏪
+</div>
+
+</body>
+</html>
