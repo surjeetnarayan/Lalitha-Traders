@@ -157,6 +157,29 @@ border:1px solid #ccc;
 .container{flex-direction:column;}
 .sidebar{width:100%;}
 }
+
+.qty-box{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:10px;
+margin-top:8px;
+}
+
+.qty-box button{
+background:#4CAF50;
+color:white;
+padding:6px 12px;
+font-size:16px;
+}
+
+.qty-box span{
+font-weight:bold;
+font-size:16px;
+min-width:20px;
+text-align:center;
+}
+
 </style>
 </head>
 <body>
@@ -172,7 +195,9 @@ border:1px solid #ccc;
 
 <button class="login-btn" onclick="openLogin()">Login</button>
 <button class="logout-btn" onclick="logoutUser()">Logout</button>
-<button class="cart-btn">Cart (<span id="cartCount">0</span>)</button>
+<button class="cart-btn" onclick="viewCart()">
+Cart (<span id="cartCount">0</span>)
+</button>
 </div>
 
 <div class="banner">
@@ -181,7 +206,7 @@ border:1px solid #ccc;
 
 <div class="dashboard">
 <h3>📊 Sales Dashboard</h3>
-<p>Total Orders: <span id="orders">0</span></p>
+<p>Total Price: <span id="orders">0</span></p>
 <p>Total Items in Cart: <span id="items">0</span></p>
 </div>
 
@@ -199,149 +224,478 @@ border:1px solid #ccc;
 <div class="products" id="productList"> 
 <!-- RICE -->
  <div class="product" data-name="aruna rice" data-category="rice">
- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_872BGPRqn6EWC6gbLxVCK9CH-lWw5XVXuA&s"> 
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_872BGPRqn6EWC6gbLxVCK9CH-lWw5XVXuA&s">
+
 <h3>Aruna Rice</h3>
- <div class="price">₹1080</div> 
-<button onclick="addToCart('Aruna Rice ₹1080')">Add to Cart</button> 
-</div> 
+
+<select id="size-aruna">
+
+<option value="1/4 kg|13">1/4 kg - ₹13</option>
+<option value="1/2 kg|25">1/2 kg - ₹25</option>
+<option value="1 kg|50">1 kg - ₹50</option>
+<option value="24 kg|1080">Full Bag 24 kg - ₹1080</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('ArunaRice','size-aruna',-1)">-</button>
+
+<span id="qty-ArunaRice">0</span>
+
+<button onclick="addRice('ArunaRice','size-aruna',1)">+</button>
+
+</div>
+
+</div>
 
 <div class="product" data-name="blue krishna rice" data-category="rice"> 
 <img src="https://www.bbassets.com/media/uploads/p/l/40264115_2-krishna-gold-boiled-rice-rich-in-nutrition.jpg"> 
 <h3>Blue Krishna Rice</h3>
- <div class="price">₹1500</div> 
-<button onclick="addToCart('Blue Krishna Rice ₹1500')">Add to Cart</button>
- </div>
+<select id="size-blue">
+
+<option value="1/4 kg|15">1/4 kg - ₹15</option>
+<option value="1/2 kg|30">1/2 kg - ₹30</option>
+<option value="1 kg|60">1 kg - ₹60</option>
+<option value="26 kg|1500">Full Bag 26 kg - ₹1500</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('BlueKrishnaRice','size-blue',-1)">-</button>
+
+<span id="qty-BlueKrishnaRice">0</span>
+
+<button onclick="addRice('BlueKrishnaRice','size-blue',1)">+</button>
+
+</div>
+
+</div>
 
  <div class="product" data-name="orange krishna rice" data-category="rice"> 
-<img src="https://images.unsplash.com/photo-1586201375761-83865001e31c">
- <h3>Orange Krishna Rice</h3> 
-<div class="price">₹1350</div> 
-<button onclick="addToCart('Orange Krishna Rice ₹1350')">Add to Cart</button>
- </div>
+<img src="https://5.imimg.com/data5/SELLER/Default/2025/1/477808733/TP/IX/JP/34819474/krishna-gold-vip-sortex-aarani-ponni-rice-26-kg.jpg">
+ <h3>Orange Krishna Rice</h3>
+
+<select id="size-orange">
+
+<option value="1/4 kg|15">1/4 kg - ₹15</option>
+<option value="1/2 kg|30">1/2 kg - ₹30</option>
+<option value="1 kg|60">1 kg - ₹60</option>
+<option value="26 kg|1350">Full Bag 26 kg - ₹1350</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('OrangeKrishnaRice','size-orange',-1)">-</button>
+
+<span id="qty-OrangeKrishnaRice">0</span>
+
+<button onclick="addRice('OrangeKrishnaRice','size-orange',1)">+</button>
+
+</div>
+
+</div>
 
  <!-- MASALA (auto pattern for both sizes) --> 
 <div class="product" data-name="turmeric 20g" data-category="masala">
- <img src="https://images.unsplash.com/photo-1604908554007-9e8a9e5078e1">
+ <img src="https://www.bestomart.com/cdn/shop/files/1000131593_large.jpg?v=1716800219">
  <h3>Turmeric 20g</h3>
  <div class="price">₹10</div> 
-<button onclick="addToCart('Turmeric 20g')">Add to Cart</button>
+<div class="qty-box">
+
+<button onclick="changeProductQty('Turmeric 20g',10,-1)">
+-
+</button>
+
+<span id="qty-Turmeric20g">
+0
+</span>
+
+<button onclick="changeProductQty('Turmeric 20g',10,1)">
++
+</button>
+
+</div>
+
  </div> 
 
 <div class="product" data-name="turmeric 50g" data-category="masala">
- <img src="https://images.unsplash.com/photo-1604908554007-9e8a9e5078e1">
+ <img src="https://www.bestomart.com/cdn/shop/files/1000131593_large.jpg?v=1716800219">
  <h3>Turmeric 50g</h3>
  <div class="price">₹20</div>
- <button onclick="addToCart('Turmeric 50g')">Add to Cart</button>
+ <div class="qty-box">
+
+<button onclick="changeProductQty('Turmeric 50g',20,-1)">
+-
+</button>
+
+<span id="qty-Turmeric50g">
+0
+</span>
+
+<button onclick="changeProductQty('Turmeric 50g',20,1)">
++
+</button>
+
+</div>
+
  </div> 
 
 <div class="product" data-name="chilli 20g" data-category="masala">
- <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d">
+ <img src="https://tiimg.tistatic.com/fp/1/512/chilli-powder-304.jpg">
  <h3>Chilli Powder 20g</h3> 
  <div class="price">₹10</div>
- <button onclick="addToCart('Chilli 20g')">Add to Cart</button>
+ <div class="qty-box">
+
+<button onclick="changeProductQty('Chilli 20g',10,-1)">
+-
+</button>
+
+<span id="qty-Chilli20g">
+0
+</span>
+
+<button onclick="changeProductQty('Chilli 20g',10,1)">
++
+</button>
+
+</div>
+
  </div>
 
 <div class="product" data-name="chilli 50g" data-category="masala"> 
-<img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d">
+<img src="https://tiimg.tistatic.com/fp/1/512/chilli-powder-304.jpg">
  <h3>Chilli Powder 50g</h3> <div class="price">₹20</div> 
-<button onclick="addToCart('Chilli 50g')">Add to Cart</button> 
+<div class="qty-box">
+
+<button onclick="changeProductQty('Chilli 50g',20,-1)">
+-
+</button>
+
+<span id="qty-Chilli50g">
+0
+</span>
+
+<button onclick="changeProductQty('Chilli 50g',20,1)">
++
+</button>
+
+</div>
+ 
 </div> 
 
 <div class="product" data-name="sambar 20g" data-category="masala">
- <img src="https://images.unsplash.com/photo-1615485299973-1e4f1b8b8e7a">
+ <img src="https://pallapattionline.com/wp-content/uploads/2025/01/1000435900.png">
  <h3>Sambar Powder 20g</h3> 
 <div class="price">₹10</div>
- <button onclick="addToCart('Sambar 20g')">Add to Cart</button>
+<div class="qty-box">
+
+<button onclick="changeProductQty('Sambar 20g',10,-1)">
+-
+</button>
+
+<span id="qty-Sambar20g">
+0
+</span>
+
+<button onclick="changeProductQty('Sambar 20g',10,1)">
++
+</button>
+
+</div>
+
  </div> 
 
 <div class="product" data-name="sambar 50g" data-category="masala"> 
-<img src="https://images.unsplash.com/photo-1615485299973-1e4f1b8b8e7a">
+<img src="https://pallapattionline.com/wp-content/uploads/2025/01/1000435900.png">
  <h3>Sambar Powder 50g</h3> 
 <div class="price">₹35</div> 
-<button onclick="addToCart('Sambar 50g')">Add to Cart</button>
+<div class="qty-box">
+
+<button onclick="changeProductQty('Sambar 50g',35,-1)">
+-
+</button>
+
+<span id="qty-Sambar50g">
+0
+</span>
+
+<button onclick="changeProductQty('Sambar 50g',35,1)">
++
+</button>
+
+</div>
+
  </div> 
 
 <!-- JUICES --> 
 <div class="product" data-name="mango juice" data-category="juice"> 
-<img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888">
+<img src="https://www.bbassets.com/media/uploads/p/xl/40315637_1-dailee-mango-drink-with-fruit-pulp-enrich-alphonso.jpg">
  <h3>Mango Juice</h3> 
 <div class="price">₹10</div> 
-<button onclick="addToCart('Mango Juice ₹20')">Add to Cart</button> 
+<div class="qty-box">
+
+<button onclick="changeProductQty('Mango Juice',10,-1)">
+-
+</button>
+
+<span id="qty-MangoJuice">
+0
+</span>
+
+<button onclick="changeProductQty('Mango Juice',10,1)">
++
+</button>
+
+</div>
+ 
 </div>
 
  <div class="product" data-name="orange juice" data-category="juice"> 
-<img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b">
+<img src="https://www.bbassets.com/media/uploads/p/l/40315653_1-dailee-orange-soft-drink.jpg">
  <h3>Orange Juice</h3> <div class="price">₹10</div>
- <button onclick="addToCart('Orange Juice ₹20')">Add to Cart</button> 
+ <div class="qty-box">
+
+<button onclick="changeProductQty('Orange Juice',10,-1)">
+-
+</button>
+
+<span id="qty-OrangeJuice">
+0
+</span>
+
+<button onclick="changeProductQty('Orange Juice',10,1)">
++
+</button>
+
+</div>
+ 
 </div>
 
  <!-- ICE CREAM --> 
 
 <div class="product" data-name="cup ice" data-category="ice"> 
-<img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb">
+<img src="https://5.imimg.com/data5/SELLER/Default/2023/5/312276327/BI/NQ/AJ/24906100/runcup.png">
  <h3>Cup Ice Cream</h3> <div class="price">₹10</div>
- <button onclick="addToCart('Cup Ice ₹10')">Add to Cart</button> 
+ <div class="qty-box">
+
+<button onclick="changeProductQty('Cup Ice Cream',10,-1)">
+-
+</button>
+
+<span id="qty-CupIceCream">
+0
+</span>
+
+<button onclick="changeProductQty('Cup Ice Cream',10,1)">
++
+</button>
+
+</div>
+ 
 </div> 
 
 <div class="product" data-name="mango bar" data-category="ice">
- <img src="https://images.unsplash.com/photo-1590080874088-eec64895b423">
+ <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSK5A--XlfQqhDnrHrlONSLUkt34lkJxKMjA&s">
  <h3>Mango Bar</h3> <div class="price">₹15</div>
- <button onclick="addToCart('Mango Bar ₹15')">Add to Cart</button>
+ <div class="qty-box">
+
+<button onclick="changeProductQty('Mango Bar',15,-1)">
+-
+</button>
+
+<span id="qty-MangoBar">
+0
+</span>
+
+<button onclick="changeProductQty('Mango Bar',15,1)">
++
+</button>
+
+</div>
  </div>
 
  <div class="product" data-name="grape bar" data-category="ice"> 
-<img src="https://images.unsplash.com/photo-1595475038784-bbe439ff41e6"> 
+<img src="https://tiimg.tistatic.com/fp/1/007/883/delicious-high-in-fiber-vitamins-royal-hygienically-prepared-adulteration-free-grape-ice-bar-455.jpg"> 
 <h3>Grape Bar</h3> <div class="price">₹15</div>
- <button onclick="addToCart('Grape Bar ₹15')">Add to Cart</button> 
+<div class="qty-box">
+
+<button onclick="changeProductQty('Grape Bar',15,-1)">
+-
+</button>
+
+<span id="qty-GrapeBar">
+0
+</span>
+
+<button onclick="changeProductQty('Grape Bar',15,1)">
++
+</button>
+
+</div> 
 </div>
 
  <div class="product" data-name="orange bar" data-category="ice">
- <img src="https://images.unsplash.com/photo-1580910051074-3eb694886505">
+ <img src="https://cgs-cdn.sgp1.digitaloceanspaces.com/dairy-day/wp-content/uploads/2023/03/30045644/8906010911126-orange-candy-2-328x600.png">
  <h3>Orange Bar</h3> <div class="price">₹15</div>
- <button onclick="addToCart('Orange Bar ₹15')">Add to Cart</button> 
+  <div class="qty-box">
+
+<button onclick="changeProductQty('Orange Bar',15,-1)">
+-
+</button>
+
+<span id="qty-OrangeBar">
+0
+</span>
+
+<button onclick="changeProductQty('Orange Bar',15,1)">
++
+</button>
+
+</div> 
 </div>
 
 <div class="product" data-name="choco bar" data-category="ice"> 
-<img src="https://images.unsplash.com/photo-1541599540903-216a46ca1dc0"> 
+<img src="https://www.coldlove.in/cdn/shop/files/ClassicChocoBar.webp?v=1709279181"> 
 <h3>Choco Bar</h3> <div class="price">₹25</div>
- <button onclick="addToCart('Choco Bar ₹25')">Add to Cart</button> 
+  <div class="qty-box">
+
+<button onclick="changeProductQty('Choco Bar',25,-1)">
+-
+</button>
+
+<span id="qty-ChocoBar">
+0
+</span>
+
+<button onclick="changeProductQty('Choco Bar',25,1)">
++
+</button>
+
+</div>
 </div> 
 
 <div class="product" data-name="vanilla cone" data-category="ice"> 
-<img src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc">
+<img src="https://www.havmor.com/sites/default/files/styles/502x375/public/gallery/Choco-Vanilla-Cone.jpg?itok=hHSCzpen">
  <h3>Vanilla Cone</h3> <div class="price">₹35</div> 
-<button onclick="addToCart('Vanilla Cone ₹35')">Add to Cart</button> 
+ <div class="qty-box">
+
+<button onclick="changeProductQty('Vanilla Cone',35,-1)">
+-
+</button>
+
+<span id="qty-VanillaCone">
+0
+</span>
+
+<button onclick="changeProductQty('Vanilla Cone',35,1)">
++
+</button>
+
+</div> 
 </div> 
 
 <div class="product" data-name="butterscotch cone" data-category="ice"> 
-<img src="https://images.unsplash.com/photo-1567206563064-6f60f40a2b57"> 
+<img src="https://cpimg.tistatic.com/5822311/b/4/butterscotch-cone-ice-cream.jpg"> 
 <h3>Butterscotch Cone</h3> <div class="price">₹40</div>
- <button onclick="addToCart('Butterscotch Cone ₹40')">Add to Cart</button>
- </div> 
+ <div class="qty-box">
+
+<button onclick="changeProductQty('Butterscotch Cone',40,-1)">
+-
+</button>
+
+<span id="qty-ButterscotchCone">
+0
+</span>
+
+<button onclick="changeProductQty('Butterscotch Cone',40,1)">
++
+</button>
+
+</div> 
+
+</div> 
 
 <div class="product" data-name="badam kulfi" data-category="ice"> 
-<img src="https://images.unsplash.com/photo-1625944525903-bfb0f53b3c35"> 
-<h3>Badam Kulfi</h3> <div class="price">₹35</div>
- <button onclick="addToCart('Badam Kulfi ₹35')">Add to Cart</button> 
+<img src="https://www.milkmaid.in/sites/default/files/2024-05/KESAR-BADAM-KULFI-335x300.jpg"> 
+<h3>Badam Kulfi</h3> <div class="price">₹35</div> 
+ <div class="qty-box">
+
+<button onclick="changeProductQty('Badam Kulfi',35,-1)">
+-
+</button>
+
+<span id="qty-BadamKulfi">
+0
+</span>
+
+<button onclick="changeProductQty('Badam Kulfi',35,1)">
++
+</button>
+
+</div> 
+ 
 </div>
 
 <div class="product" data-name="pistha kulfi" data-category="ice"> 
-<img src="https://images.unsplash.com/photo-1625944525903-bfb0f53b3c35"> 
+<img src="https://5.imimg.com/data5/ANDROID/Default/2023/1/NK/OQ/QU/155709996/product-jpeg-500x500.jpg"> 
 <h3>Pistha Kulfi</h3> <div class="price">₹35</div>
- <button onclick="addToCart('Pistha Kulfi ₹35')">Add to Cart</button> 
+  <div class="qty-box">
+
+<button onclick="changeProductQty('Pistha Kulfi',35,-1)">
+-
+</button>
+
+<span id="qty-PisthaKulfi">
+0
+</span>
+
+<button onclick="changeProductQty('Pistha Kulfi',35,1)">
++
+</button>
+
+</div> 
+ 
 </div>
 
 <div class="product" data-name="kesar pistha kulfi" data-category="ice"> 
-<img src="https://images.unsplash.com/photo-1625944525903-bfb0f53b3c35"> 
+<img src="https://tiimg.tistatic.com/fp/1/007/834/-classic-creamy-rich-taste-sweet-delight-dessert-kulfi-ice-cream--839.jpg"> 
 <h3>Kesar Pistha Kulfi</h3> <div class="price">₹50</div>
- <button onclick="addToCart('Kesar Pistha Kulfi ₹50')">Add to Cart</button> 
+<div class="qty-box">
+
+<button onclick="changeProductQty('Kesar Pistha Kulfi',50,-1)">
+-
+</button>
+
+<span id="qty-KesarPisthaKulfi">
+0
+</span>
+
+<button onclick="changeProductQty('Kesar Pistha Kulfi',50,1)">
++
+</button>
+
+</div> 
+
 </div> 
 
 </div> 
 
 </div>
 
-<a class="whatsapp" id="whatsappBtn" href="#" target="_blank">
+<a class="whatsapp" id="whatsappBtn"
+onclick="updateWhatsAppLink()"
+href="#"
+target="_blank">
 WhatsApp Order
 </a>
 
@@ -365,15 +719,31 @@ WhatsApp Order
 
 <script>
 
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+updateCartDisplay();
 
-function addToCart(item){
-cart.push(item);
+function addToCart(name, price){
 
-document.getElementById("cartCount").textContent = cart.length;
-document.getElementById("items").textContent = cart.length;
+let existing = cart.find(item => item.name === name);
 
-updateWhatsAppLink();
+if(existing){
+
+existing.qty++;
+
+}else{
+
+cart.push({
+name: name,
+price: price,
+qty: 1
+});
+
+}
+
+saveCart();
+
+updateCartDisplay();
+
 }
 
 function searchProducts(){
@@ -409,29 +779,71 @@ p.style.display = "none";
 
 function updateWhatsAppLink(){
 
-let loggedUser = localStorage.getItem("loggedInUser");
+if(cart.length === 0){
+
+alert("Cart is empty");
+
+return;
+
+}
+
+let loggedUser =
+localStorage.getItem("loggedInUser");
 
 if(!loggedUser){
+
 alert("Please login before ordering");
+
 openLogin();
+
 return;
+
 }
 
-let message = "Order from Lalitha Traders (User: " + loggedUser + "):%0A";
+let message =
+"Order from Lalitha Traders%0A%0A";
 
-if(cart.length === 0){
-message += "No items in cart";
-}else{
-cart.forEach((item, index)=>{
-message += (index + 1) + ". " + item + "%0A";
+message +=
+"User: " +
+loggedUser +
+"%0A%0A";
+
+let total = 0;
+
+cart.forEach((item,index)=>{
+
+let itemTotal =
+item.price * item.qty;
+
+total += itemTotal;
+
+message +=
+(index+1) + ". " +
+item.name +
+"%0AQty: " +
+item.qty +
+"%0APrice: ₹" +
+itemTotal +
+"%0A%0A";
+
 });
-}
 
-let phone = "919952449826";
+message +=
+"Total Amount: ₹" +
+total;
 
-let url = "https://wa.me/" + phone + "?text=" + message;
+let phone =
+"919952449826";
 
-document.getElementById("whatsappBtn").href = url;
+let url =
+"https://wa.me/" +
+phone +
+"?text=" +
+message;
+
+document.getElementById(
+"whatsappBtn"
+).href = url;
 
 }
 
@@ -478,6 +890,9 @@ localStorage.setItem("loggedInUser", user);
 document.querySelector(".login-btn").innerText =
 "Welcome " + user;
 
+document.querySelector(".logout-btn").style.display =
+"inline-block";
+
 setTimeout(()=>{
 closeLogin();
 },1000);
@@ -496,7 +911,11 @@ function logoutUser(){
 
 localStorage.removeItem("loggedInUser");
 
-document.querySelector(".login-btn").innerText = "Login";
+document.querySelector(".login-btn").innerText =
+"Login";
+
+document.querySelector(".logout-btn").style.display =
+"none";
 
 alert("Logged out successfully");
 
@@ -504,12 +923,316 @@ alert("Logged out successfully");
 
 window.onload = function(){
 
-let savedUser = localStorage.getItem("loggedInUser");
+cart.forEach(item => {
+
+let baseName =
+item.name
+.replace(/\s+/g,'')
+.replace(/\//g,'')
+.replace(/\./g,'')
+.replace(/-/g,'');
+
+let qtyElement =
+document.getElementById(
+"qty-" + baseName
+);
+
+if(qtyElement){
+qtyElement.innerText = item.qty;
+}
+
+});
+
+let savedUser =
+localStorage.getItem("loggedInUser");
 
 if(savedUser){
+
 document.querySelector(".login-btn").innerText =
 "Welcome " + savedUser;
+
+document.querySelector(".logout-btn").style.display =
+"inline-block";
+
+}else{
+
+document.querySelector(".logout-btn").style.display =
+"none";
+
 }
+
+}
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+saveCart();
+
+updateCartDisplay();
+
+if(cart.length === 0){
+alert("Cart is empty");
+}
+
+}
+
+function changeQty(index, value){
+
+cart[index].qty = parseInt(value);
+
+if(cart[index].qty <= 0){
+
+removeItem(index);
+
+return;
+
+}
+
+saveCart();
+
+updateCartDisplay();
+
+}
+
+function saveCart(){
+
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
+
+}
+
+function updateCartDisplay(){
+
+let totalItems = 0;
+
+let totalPrice = 0;
+
+cart.forEach(item=>{
+
+totalItems += item.qty;
+
+totalPrice += item.qty * item.price;
+
+});
+
+document.getElementById(
+"cartCount"
+).textContent = totalItems;
+
+document.getElementById(
+"items"
+).textContent = totalItems;
+
+document.getElementById(
+"orders"
+).textContent = "₹" + totalPrice;
+
+}
+
+function viewCart(){
+
+if(cart.length === 0){
+alert("Cart is empty");
+return;
+}
+
+let cartWindow = window.open("", "Cart", "width=420,height=520");
+
+let html = `
+<html>
+<head>
+<title>Your Cart</title>
+
+<style>
+
+body{
+font-family: Arial;
+padding:15px;
+background:#f4f4f4;
+}
+
+.item{
+background:white;
+padding:12px;
+margin-bottom:12px;
+border-radius:10px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+button{
+padding:6px 10px;
+margin:3px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.qty{
+background:#4CAF50;
+color:white;
+}
+
+.remove{
+background:#d9534f;
+color:white;
+}
+
+.total{
+font-size:18px;
+font-weight:bold;
+margin-top:15px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Your Cart</h2>
+`;
+
+let total = 0;
+
+cart.forEach((item,index)=>{
+
+let itemTotal =
+item.price * item.qty;
+
+total += itemTotal;
+
+html += `
+
+<div class="item">
+
+<b>${item.name}</b>
+
+<br><br>
+
+Qty:
+
+<button class="qty"
+onclick="window.opener.changeQty(${index}, ${item.qty - 1}); location.reload();">
+-
+</button>
+
+${item.qty}
+
+<button class="qty"
+onclick="window.opener.changeQty(${index}, ${item.qty + 1}); location.reload();">
++
+</button>
+
+<br><br>
+
+<button class="remove"
+onclick="window.opener.removeItem(${index}); location.reload();">
+Remove Item
+</button>
+
+</div>
+
+`;
+
+});
+
+html += `
+
+<div class="total">
+Total Amount: ₹${total}
+</div>
+
+</body>
+</html>
+`;
+
+cartWindow.document.write(html);
+cartWindow.document.close();
+}
+
+function changeProductQty(name, price, change){
+
+let existing =
+cart.find(item => item.name === name);
+
+let baseName =
+name
+.replace(/\s+/g,'')
+.replace(/\//g,'')
+.replace(/\./g,'')
+.replace(/-/g,'');
+
+let qtyElement =
+document.getElementById(
+"qty-" + baseName
+);
+
+if(existing){
+
+existing.qty += change;
+
+if(existing.qty <= 0){
+
+cart =
+cart.filter(item =>
+item.name !== name
+);
+
+if(qtyElement)
+qtyElement.innerText = 0;
+
+}else{
+
+if(qtyElement)
+qtyElement.innerText =
+existing.qty;
+
+}
+
+}else if(change > 0){
+
+cart.push({
+name: name,
+price: price,
+qty: 1
+});
+
+if(qtyElement)
+qtyElement.innerText = 1;
+
+}
+
+saveCart();
+updateCartDisplay();
+
+}
+
+function addRice(name, selectId, change){
+
+let select =
+document.getElementById(selectId).value;
+
+let parts =
+select.split("|");
+
+let size =
+parts[0];
+
+let price =
+parseInt(parts[1]);
+
+let fullName =
+name + " " + size;
+
+changeProductQty(
+fullName,
+price,
+change
+);
 
 }
 
