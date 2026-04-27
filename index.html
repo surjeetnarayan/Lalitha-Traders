@@ -1039,7 +1039,11 @@ alert("Cart is empty");
 return;
 }
 
-let cartWindow = window.open("", "Cart", "width=420,height=520");
+let cartWindow = window.open(
+"",
+"Cart",
+"width=420,height=620,resizable=yes,scrollbars=yes"
+);
 
 let html = `
 <html>
@@ -1050,8 +1054,13 @@ let html = `
 
 body{
 font-family: Arial;
-padding:15px;
+padding:12px;
 background:#f4f4f4;
+margin:0;
+}
+
+h2{
+text-align:center;
 }
 
 .item{
@@ -1063,12 +1072,13 @@ box-shadow:0 2px 6px rgba(0,0,0,0.1);
 }
 
 button{
-padding:6px 10px;
-margin:3px;
+padding:8px 12px;
+margin:4px;
 border:none;
-border-radius:6px;
+border-radius:8px;
 cursor:pointer;
 font-weight:bold;
+font-size:16px;
 }
 
 .qty{
@@ -1082,13 +1092,30 @@ color:white;
 }
 
 .total{
-font-size:18px;
+font-size:20px;
 font-weight:bold;
 margin-top:15px;
+text-align:center;
+}
+
+@media(max-width:500px){
+
+body{
+font-size:18px;
+}
+
+button{
+width:100%;
+margin-top:6px;
+}
+
+.item{
+padding:14px;
+}
+
 }
 
 </style>
-
 </head>
 
 <body>
@@ -1116,21 +1143,21 @@ html += `
 Qty:
 
 <button class="qty"
-onclick="window.opener.changeQty(${index}, ${item.qty - 1}); location.reload();">
+onclick="window.opener.changeQty(${index}, ${item.qty - 1}); window.opener.viewCart();">
 -
 </button>
 
 ${item.qty}
 
 <button class="qty"
-onclick="window.opener.changeQty(${index}, ${item.qty + 1}); location.reload();">
+onclick="window.opener.changeQty(${index}, ${item.qty + 1}); window.opener.viewCart();">
 +
 </button>
 
 <br><br>
 
 <button class="remove"
-onclick="window.opener.removeItem(${index}); location.reload();">
+onclick="window.opener.removeItem(${index}); window.opener.viewCart();">
 Remove Item
 </button>
 
