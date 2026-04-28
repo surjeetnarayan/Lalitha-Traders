@@ -6,6 +6,99 @@
 <title>Lalitha Traders - Full Store System</title>
 
 <style>
+
+/* CART PANEL */
+
+.cart-panel{
+position:fixed;
+top:0;
+right:-100%;
+width:420px;
+height:100%;
+background:white;
+box-shadow:-4px 0 12px rgba(0,0,0,0.3);
+transition:0.3s;
+z-index:999;
+display:flex;
+flex-direction:column;
+}
+
+.cart-panel.active{
+right:0;
+}
+
+.cart-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px;
+background:#131921;
+color:white;
+}
+
+.close-cart{
+background:red;
+color:white;
+font-size:18px;
+padding:6px 12px;
+border-radius:6px;
+}
+
+#cartItems{
+flex:1;
+overflow-y:auto;
+padding:12px;
+}
+
+.cart-item{
+background:#f8f8f8;
+padding:12px;
+margin-bottom:12px;
+border-radius:10px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.cart-buttons{
+display:flex;
+gap:8px;
+margin-top:8px;
+}
+
+.cart-buttons button{
+flex:1;
+padding:8px;
+font-weight:bold;
+border-radius:8px;
+}
+
+.qty-btn{
+background:#4CAF50;
+color:white;
+}
+
+.remove-btn{
+background:#d9534f;
+color:white;
+}
+
+.cart-total{
+padding:15px;
+font-size:18px;
+font-weight:bold;
+text-align:center;
+border-top:1px solid #ddd;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.cart-panel{
+width:100%;
+}
+
+}
+
 *{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI, Arial, sans-serif;}
 body{background:#eef1f5;}
 
@@ -180,6 +273,20 @@ min-width:20px;
 text-align:center;
 }
 
+.clear-btn{
+background:#d9534f;
+color:white;
+border:none;
+padding:10px 14px;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.clear-btn:hover{
+background:#c9302c;
+}
+
 </style>
 </head>
 <body>
@@ -195,7 +302,7 @@ text-align:center;
 
 <button class="login-btn" onclick="openLogin()">Login</button>
 <button class="logout-btn" onclick="logoutUser()">Logout</button>
-<button class="cart-btn" onclick="viewCart()">
+<button class="cart-btn" onclick="openCartPanel()">
 Cart (<span id="cartCount">0</span>)
 </button>
 </div>
@@ -421,15 +528,15 @@ Cart (<span id="cartCount">0</span>)
 <div class="price">₹35</div> 
 <div class="qty-box">
 
-<button onclick="changeProductQty('Sambar 50g',35,-1)">
+<button onclick="changeProductQty('Sambar Powder 50g',35,-1)">
 -
 </button>
 
-<span id="qty-Sambar50g">
+<span id="qty-SambarPowder50g">
 0
 </span>
 
-<button onclick="changeProductQty('Sambar 50g',35,1)">
+<button onclick="changeProductQty('Sambar Powder 50g',35,1)">
 +
 </button>
 
@@ -800,11 +907,23 @@ return;
 
 }
 
+let orderID = generateOrderID();
+
+let orderDate = getOrderDate();
+
 let message =
-"Order from Lalitha Traders%0A%0A";
+"I'd like to order this items from Lalitha Traders%0A%0A";
 
 message +=
-"User: " +
+"Order ID: " + orderID +
+"%0A";
+
+message +=
+"Date: " + orderDate +
+"%0A%0A";
+
+message +=
+"Customer Name: " +
 loggedUser +
 "%0A%0A";
 
@@ -1030,6 +1149,8 @@ document.getElementById(
 "orders"
 ).textContent = "₹" + totalPrice;
 
+renderCartItems();
+
 }
 
 function viewCart(){
@@ -1042,7 +1163,7 @@ return;
 let cartWindow = window.open(
 "",
 "Cart",
-"width=420,height=620,resizable=yes,scrollbars=yes"
+"width=320,height=568,resizable=yes,scrollbars=yes"
 );
 
 let html = `
@@ -1255,15 +1376,195 @@ parseInt(parts[1]);
 let fullName =
 name + " " + size;
 
+/* Create SAFE ID (no spaces or symbols) */
+
+let safeName =
+(fullName)
+.replace(/\s+/g,'')
+.replace(/\//g,'')
+.replace(/\./g,'')
+.replace(/-/g,'');
+
+/* Call main function */
+
 changeProductQty(
 fullName,
 price,
 change
 );
 
+/* Update correct quantity display */
+
+let qtyElement =
+document.getElementById(
+"qty-" + name
+);
+
+if(qtyElement){
+
+let existing =
+cart.find(item =>
+item.name === fullName
+);
+
+qtyElement.innerText =
+existing ? existing.qty : 0;
+
+}
+
+}
+
+
+function generateOrderID(){
+
+return "LT" + Math.floor(
+10000 + Math.random() * 90000
+);
+
+}
+
+function getOrderDate(){
+
+let now = new Date();
+
+let date =
+now.getDate().toString().padStart(2,"0") + "-" +
+(now.getMonth()+1).toString().padStart(2,"0") + "-" +
+now.getFullYear() + " " +
+now.getHours().toString().padStart(2,"0") + ":" +
+now.getMinutes().toString().padStart(2,"0");
+
+return date;
+
+}
+
+function clearCart(){
+
+cart = [];
+
+localStorage.removeItem("cart");
+
+/* Reset all quantity numbers */
+
+document
+.querySelectorAll("[id^='qty-']")
+.forEach(span => {
+span.innerText = 0;
+});
+
+/* Update display */
+
+updateCartDisplay();
+
+/* Clear cart panel items */
+
+document.getElementById("cartItems").innerHTML = "";
+
+document.getElementById("cartTotal").innerText = 0;
+
+alert("Cart cleared successfully");
+
+}
+
+function openCartPanel(){
+
+document
+.getElementById("cartPanel")
+.classList.add("active");
+
+renderCartItems();
+
+}
+
+function closeCart(){
+
+document
+.getElementById("cartPanel")
+.classList.remove("active");
+
+}
+
+function renderCartItems(){
+
+let container =
+document.getElementById("cartItems");
+
+container.innerHTML = "";
+
+let total = 0;
+
+cart.forEach((item,index)=>{
+
+let itemTotal =
+item.price * item.qty;
+
+total += itemTotal;
+
+container.innerHTML += `
+
+<div class="cart-item">
+
+<b>${item.name}</b>
+
+<br><br>
+
+Qty:
+
+<button class="qty-btn"
+onclick="changeQty(${index}, ${item.qty - 1})">
+-
+</button>
+
+${item.qty}
+
+<button class="qty-btn"
+onclick="changeQty(${index}, ${item.qty + 1})">
++
+</button>
+
+<br><br>
+
+<button class="remove-btn"
+onclick="removeItem(${index})">
+Remove
+</button>
+
+</div>
+
+`;
+
+});
+
+document.getElementById(
+"cartTotal"
+).innerText = total;
+
 }
 
 </script>
+
+<!-- CART PANEL -->
+<div id="cartPanel" class="cart-panel">
+
+<div class="cart-header">
+<h2>🛒 Your Cart</h2>
+<button class="close-cart" onclick="closeCart()">✖</button>
+</div>
+
+<div id="cartItems"></div>
+
+<div class="cart-total">
+Total: ₹<span id="cartTotal">0</span>
+
+<br><br>
+
+<button onclick="clearCart()" class="clear-btn">
+🗑 Clear Cart
+</button>
+
+</div>
+
+</div>
 
 <div class="footer">
 © 2026 Lalitha Traders | Retail Store 🏪
