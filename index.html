@@ -7,6 +7,12 @@
 
 <style>
 
+.logout-btn{
+background:#d9534f;
+color:white;
+display:none;
+}
+
 /* CART PANEL */
 
 .cart-panel{
@@ -17,7 +23,7 @@ width:420px;
 height:100%;
 background:white;
 box-shadow:-4px 0 12px rgba(0,0,0,0.3);
-transition:0.3s;
+transition:right 0.3s ease;
 z-index:999;
 display:flex;
 flex-direction:column;
@@ -132,7 +138,6 @@ font-weight:bold;
 
 .cart-btn{background:#febd69;color:black;}
 .login-btn{background:#4CAF50;color:white;}
-.logout-btn{background:#d9534f;color:white;}
 
 .banner{
 background:#fff;
@@ -222,6 +227,7 @@ padding:15px 20px;
 border-radius:50px;
 font-size:18px;
 text-decoration:none;
+cursor:pointer;
 }
 
 .login-box{
@@ -412,6 +418,111 @@ Cart (<span id="cartCount">0</span>)
 
 </div>
 
+<div class="product" data-name="basmati rice" data-category="rice"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40170134_1-unity-biryani-basmati-rice.jpg"> 
+<h3>Basmati Rice</h3>
+<select id="size-biriyani">
+
+<option value="1/4 kg|35">1/4 kg - ₹35</option>
+<option value="1/2 kg|65">1/2 kg - ₹65</option>
+<option value="1 kg|130">1 kg - ₹130</option>
+<option value="5 kg|650">5 kg - ₹650</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('BasmatiRice','size-biriyani',-1)">-</button>
+
+<span id="qty-BasmatiRice">0</span>
+
+<button onclick="addRice('BasmatiRice','size-biriyani',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="idly rice" data-category="rice"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40240867_1-udhaiyam-idly-rice-for-soft-fluffy-batter.jpg"> 
+<h3>Idly Rice</h3>
+<select id="size-idly">
+
+<option value="1/4 kg|15">1/4 kg - ₹15</option>
+<option value="1/2 kg|25">1/2 kg - ₹25</option>
+<option value="1 kg|50">1 kg - ₹50</option>
+<option value="5 kg|250">5 kg - ₹250</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('IdlyRice','size-idly',-1)">-</button>
+
+<span id="qty-IdlyRice">0</span>
+
+<button onclick="addRice('IdlyRice','size-idly',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="ponni boiled rice" data-category="rice"> 
+<img src="https://www.nammamarkt.com/cdn/shop/files/IMG-8001.png?v=1761162554&width=535"> 
+<h3>Ponni Boiled Rice</h3>
+<select id="size-pachai">
+
+<option value="1/4 kg|15">1/4 kg - ₹15</option>
+<option value="1/2 kg|25">1/2 kg - ₹25</option>
+<option value="1 kg|50">1 kg - ₹50</option>
+<option value="5 kg|250">5 kg - ₹250</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('PonniBoiledRice','size-pachai',-1)">-</button>
+
+<span id="qty-PonniBoiledRice">0</span>
+
+<button onclick="addRice('PonniBoiledRice','size-pachai',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="broken rice" data-category="rice"> 
+<img src="https://5.imimg.com/data5/SELLER/Default/2024/1/378917123/EQ/FU/MW/180204009/whatsapp-image-2024-01-19-at-4-34-32-pm.jpg"> 
+<h3>Broken Rice</h3>
+<select id="size-noi">
+
+<option value="1/4 kg|15">1/4 kg - ₹15</option>
+<option value="1/2 kg|25">1/2 kg - ₹25</option>
+<option value="1 kg|50">1 kg - ₹50</option>
+<option value="5 kg|250">5 kg - ₹250</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('BrokenRice','size-noi',-1)">-</button>
+
+<span id="qty-BrokenRice">0</span>
+
+<button onclick="addRice('BrokenRice','size-noi',1)">+</button>
+
+</div>
+
+</div>
+
+
  <!-- MASALA (auto pattern for both sizes) --> 
 <div class="product" data-name="turmeric 20g" data-category="masala">
  <img src="https://www.bestomart.com/cdn/shop/files/1000131593_large.jpg?v=1716800219">
@@ -458,7 +569,7 @@ Cart (<span id="cartCount">0</span>)
  </div> 
 
 <div class="product" data-name="chilli 20g" data-category="masala">
- <img src="https://tiimg.tistatic.com/fp/1/512/chilli-powder-304.jpg">
+ <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPIcYT-MzMX6YA7iKoUItIyaEWn20ydaY5iw&s">
  <h3>Chilli Powder 20g</h3> 
  <div class="price">₹10</div>
  <div class="qty-box">
@@ -480,7 +591,7 @@ Cart (<span id="cartCount">0</span>)
  </div>
 
 <div class="product" data-name="chilli 50g" data-category="masala"> 
-<img src="https://tiimg.tistatic.com/fp/1/512/chilli-powder-304.jpg">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPIcYT-MzMX6YA7iKoUItIyaEWn20ydaY5iw&s">
  <h3>Chilli Powder 50g</h3> <div class="price">₹20</div> 
 <div class="qty-box">
 
@@ -542,7 +653,74 @@ Cart (<span id="cartCount">0</span>)
 
 </div>
 
+ </div>
+
+<div class="product" data-name="65 masala 20g" data-category="masala">
+ <img src="https://m.media-amazon.com/images/I/61GekvqqtIL.jpg">
+ <h3>65 Masala 20g</h3>
+ <div class="price">₹15</div> 
+<div class="qty-box">
+
+<button onclick="changeProductQty('65 Masala 20g',15,-1)">
+-
+</button>
+
+<span id="qty-65Masala20g">
+0
+</span>
+
+<button onclick="changeProductQty('65 Masala 20g',15,1)">
++
+</button>
+
+</div>
+
  </div> 
+
+<div class="product" data-name="super garam 20g" data-category="masala">
+ <img src="https://m.media-amazon.com/images/I/61gwSEQbqiL._AC_UF350,350_QL80_.jpg">
+ <h3>Super Garam 20g</h3>
+ <div class="price">₹10</div> 
+<div class="qty-box">
+
+<button onclick="changeProductQty('Super Garam 20g',10,-1)">
+-
+</button>
+
+<span id="qty-SuperGaram20g">
+0
+</span>
+
+<button onclick="changeProductQty('Super Garam 20g',10,1)">
++
+</button>
+
+</div>
+
+ </div>  
+
+<div class="product" data-name="biriyani masala 20g" data-category="masala">
+ <img src="https://pallapattionline.com/wp-content/uploads/2025/01/1000434488-300x300.png">
+ <h3>Biriyani Masala 20g</h3>
+ <div class="price">₹15</div> 
+<div class="qty-box">
+
+<button onclick="changeProductQty('Biriyani Masala 20g',15,-1)">
+-
+</button>
+
+<span id="qty-BiriyaniMasala20g">
+0
+</span>
+
+<button onclick="changeProductQty('Biriyani Masala 20g',15,1)">
++
+</button>
+
+</div>
+
+ </div>  
+
 
 <!-- JUICES --> 
 <div class="product" data-name="mango juice" data-category="juice"> 
@@ -854,18 +1032,33 @@ updateCartDisplay();
 }
 
 function searchProducts(){
-let input = document.getElementById("searchInput").value.toLowerCase();
-let products = document.querySelectorAll(".product");
+
+let input =
+document.getElementById("searchInput")
+.value
+.toLowerCase();
+
+let products =
+document.querySelectorAll(".product");
 
 products.forEach(p=>{
-let name = p.getAttribute("data-name");
+
+let name =
+p.getAttribute("data-name")
+.toLowerCase();
 
 if(name.includes(input)){
+
 p.style.display = "block";
+
 }else{
+
 p.style.display = "none";
+
 }
+
 });
+
 }
 
 function filterCategory(category){
@@ -912,7 +1105,7 @@ let orderID = generateOrderID();
 let orderDate = getOrderDate();
 
 let message =
-"I'd like to order this items from Lalitha Traders%0A%0A";
+"I'd like to order these items from Lalitha Traders%0A%0A";
 
 message +=
 "Order ID: " + orderID +
@@ -963,6 +1156,7 @@ message;
 document.getElementById(
 "whatsappBtn"
 ).href = url;
+alert("Opening WhatsApp to place your order 📦");
 
 }
 
@@ -1097,6 +1291,11 @@ alert("Cart is empty");
 }
 
 function changeQty(index, value){
+
+if(value < 1){
+removeItem(index);
+return;
+}
 
 cart[index].qty = parseInt(value);
 
@@ -1463,6 +1662,7 @@ document.getElementById("cartItems").innerHTML = "";
 document.getElementById("cartTotal").innerText = 0;
 
 alert("Cart cleared successfully");
+closeCart();
 
 }
 
