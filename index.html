@@ -330,8 +330,13 @@ Cart (<span id="cartCount">0</span>)
 <div onclick="filterCategory('all')">🛒 All</div>
 <div onclick="filterCategory('rice')">🍚 Rice</div>
 <div onclick="filterCategory('masala')">🌶️ Masala</div>
+<div onclick="filterCategory('dal')">🥣 Dal</div>
+<div onclick="filterCategory('flour')">🌾 Flour</div>
 <div onclick="filterCategory('juice')">🧃 Juices</div>
+<div onclick="filterCategory('dairy')">🥛 Dairy</div>
+<div onclick="filterCategory('beverages')">🥤 Beverages</div>
 <div onclick="filterCategory('ice')">🍦 Ice Cream</div>
+<div onclick="filterCategory('detergents')">🧼 Detergents</div>
 </div>
 
 <div class="products" id="productList"> 
@@ -470,9 +475,9 @@ Cart (<span id="cartCount">0</span>)
 
 </div>
 
-<div class="product" data-name="ponni boiled rice" data-category="rice"> 
-<img src="https://www.nammamarkt.com/cdn/shop/files/IMG-8001.png?v=1761162554&width=535"> 
-<h3>Ponni Boiled Rice</h3>
+<div class="product" data-name="boiled rice" data-category="rice"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40256925_1-apple-apple-raw-rice.jpg"> 
+<h3>Boiled Rice</h3>
 <select id="size-pachai">
 
 <option value="1/4 kg|15">1/4 kg - ₹15</option>
@@ -486,11 +491,11 @@ Cart (<span id="cartCount">0</span>)
 
 <div class="qty-box">
 
-<button onclick="addRice('PonniBoiledRice','size-pachai',-1)">-</button>
+<button onclick="addRice('BoiledRice','size-pachai',-1)">-</button>
 
-<span id="qty-PonniBoiledRice">0</span>
+<span id="qty-BoiledRice">0</span>
 
-<button onclick="addRice('PonniBoiledRice','size-pachai',1)">+</button>
+<button onclick="addRice('BoiledRice','size-pachai',1)">+</button>
 
 </div>
 
@@ -721,6 +726,355 @@ Cart (<span id="cartCount">0</span>)
 
  </div>  
 
+<!--DAL-->
+<div class="product" data-name="urad dal" data-category="dal"> 
+<img src="https://village-groceries.com/wp-content/uploads/2025/03/UDHAIYAM-URID-WHOLE-GOTA-2KG.png"> 
+<h3>Urad Dal</h3>
+<select id="size-urad">
+
+<option value="1/4 kg|35">1/4 kg - ₹35</option>
+<option value="1/2 kg|70">1/2 kg - ₹70</option>
+<option value="1 kg|140">1 kg - ₹140</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('UradDal','size-urad',-1)">-</button>
+
+<span id="qty-UradDal">0</span>
+
+<button onclick="addRice('UradDal','size-urad',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="toor dal" data-category="dal"> 
+<img src="https://i0.wp.com/village-groceries.com/wp-content/uploads/2025/03/UDHAIYAM-TOOR-DALL-2KG.png?fit=794%2C698&ssl=1"> 
+<h3>Toor Dal</h3>
+<select id="size-toor">
+
+<option value="1/4 kg|35">1/4 kg - ₹35</option>
+<option value="1/2 kg|70">1/2 kg - ₹70</option>
+<option value="1 kg|140">1 kg - ₹140</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('ToorDal','size-toor',-1)">-</button>
+
+<span id="qty-ToorDal">0</span>
+
+<button onclick="addRice('ToorDal','size-toor',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="masoor dal" data-category="dal"> 
+<img src="https://m.media-amazon.com/images/I/61SgI9W-TVL._AC_UF894,1000_QL80_.jpg"> 
+<h3>Masoor Dal</h3>
+<select id="size-masoor">
+
+<option value="1/4 kg|25">1/4 kg - ₹25</option>
+<option value="1/2 kg|50">1/2 kg - ₹50</option>
+<option value="1 kg|100">1 kg - ₹100</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('MasoorDal','size-masoor',-1)">-</button>
+
+<span id="qty-MasoorDal">0</span>
+
+<button onclick="addRice('MasoorDal','size-masoor',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="moong dal" data-category="dal"> 
+<img src="https://www.bestomart.com/cdn/shop/products/1000123856-3_1024x1024.jpg?v=1686641813"> 
+<h3>Moong Dal</h3>
+<select id="size-moong">
+
+<option value="1/4 kg|28">1/4 kg - ₹28</option>
+<option value="1/2 kg|55">1/2 kg - ₹55</option>
+<option value="1 kg|110">1 kg - ₹110</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('MoongDal','size-moong',-1)">-</button>
+
+<span id="qty-MoongDal">0</span>
+
+<button onclick="addRice('MoongDal','size-moong',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="gram dal" data-category="dal"> 
+<img src="https://www.bestomart.com/cdn/shop/products/1000123859-3_1024x1024.jpg?v=1686641825"> 
+<h3>Gram Dal</h3>
+<select id="size-gram">
+
+<option value="1/4 kg|23">1/4 kg - ₹23</option>
+<option value="1/2 kg|45">1/2 kg - ₹45</option>
+<option value="1 kg|90">1 kg - ₹90</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('GramDal','size-gram',-1)">-</button>
+
+<span id="qty-GramDal">0</span>
+
+<button onclick="addRice('GramDal','size-gram',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="roasted gram dal" data-category="dal"> 
+<img src="https://annachy-prod-assets.annachy.com/pims/products-v1/032982100_1.webp?v=1768903005312"> 
+<h3>Roasted Gram Dal</h3>
+<select id="size-roasted">
+
+<option value="1/4 kg|30">1/4 kg - ₹30</option>
+<option value="1/2 kg|60">1/2 kg - ₹60</option>
+<option value="1 kg|120">1 kg - ₹120</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('RoastedGramDal','size-roasted',-1)">-</button>
+
+<span id="qty-RoastedGramDal">0</span>
+
+<button onclick="addRice('RoastedGramDal','size-roasted',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="white chickpeas" data-category="dal"> 
+<img src="https://m.media-amazon.com/images/I/71WZBo+wSVL._AC_UF894,1000_QL80_.jpg"> 
+<h3>White Chickpeas</h3>
+<select id="size-white">
+
+<option value="1/4 kg|35">1/4 kg - ₹35</option>
+<option value="1/2 kg|70">1/2 kg - ₹70</option>
+<option value="1 kg|140">1 kg - ₹140</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('WhiteChickpeas','size-white',-1)">-</button>
+
+<span id="qty-WhiteChickpeas">0</span>
+
+<button onclick="addRice('WhiteChickpeas','size-white',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="brown chickpeas" data-category="dal"> 
+<img src="https://www.dial4trade.com/uploaded_files/product_images/indian-black-chickpeas-packaging-size-25-50-packaging-type-packet-u-843160318727584304.webp"> 
+<h3>Brown Chickpeas</h3>
+<select id="size-brown">
+
+<option value="1/4 kg|33">1/4 kg - ₹33</option>
+<option value="1/2 kg|65">1/2 kg - ₹65</option>
+<option value="1 kg|130">1 kg - ₹130</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('BrownChickpeas','size-brown',-1)">-</button>
+
+<span id="qty-BrownChickpeas">0</span>
+
+<button onclick="addRice('BrownChickpeas','size-brown',1)">+</button>
+
+</div>
+
+</div>
+
+<!--FLOUR-->
+
+<div class="product" data-name="aashirvaad atta" data-category="flour"> 
+<img src="https://m.media-amazon.com/images/I/9104JpXbv6L.jpg"> 
+<h3>Aashirvaad Atta</h3>
+<select id="size-aashirvaad">
+
+<option value="1/2 kg|35">1/2 kg - ₹35</option>
+<option value="1 kg|70">1 kg - ₹70</option>
+<option value="5 kg|340">5 kg - ₹340</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('AashirvaadAtta','size-aashirvaad',-1)">-</button>
+
+<span id="qty-AashirvaadAtta">0</span>
+
+<button onclick="addRice('AashirvaadAtta','size-aashirvaad',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="365 days atta" data-category="flour">
+ <img src="https://appvyapar-assets.blr1.digitaloceanspaces.com/uploads/nre/2025-10/bigimages/aa8d37303af1126a294e57e36945e6af.jpeg">
+ <h3>365 Days Atta 5Kg</h3>
+ <div class="price">₹230</div> 
+<div class="qty-box">
+
+<button onclick="changeProductQty('365 Days Atta',230,-1)">
+-
+</button>
+
+<span id="qty-365DaysAtta">
+0
+</span>
+
+<button onclick="changeProductQty('365 Days Atta',230,1)">
++
+</button>
+
+</div>
+
+ </div>
+
+<div class="product" data-name="maida" data-category="flour"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40194163_6-fortune-maida.jpg"> 
+<h3>Maida</h3>
+<select id="size-maida">
+
+<option value="1/4 kg|15">1/4 kg - ₹15</option>
+<option value="1/2 kg|30">1/2 kg - ₹30</option>
+<option value="1 kg|60">1 kg - ₹60</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('Maida','size-maida',-1)">-</button>
+
+<span id="qty-Maida">0</span>
+
+<button onclick="addRice('Maida','size-maida',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="ragi flour" data-category="flour"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40001257_5-manna-ragi-flour.jpg"> 
+<h3>Ragi Flour</h3>
+<select id="size-ragi">
+
+<option value="1/4 kg|23">1/4 kg - ₹23</option>
+<option value="1/2 kg|45">1/2 kg - ₹45</option>
+<option value="1 kg|90">1 kg - ₹90</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('RagiFlour','size-ragi',-1)">-</button>
+
+<span id="qty-RagiFlour">0</span>
+
+<button onclick="addRice('RagiFlour','size-ragi',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="gram flour" data-category="flour"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40275444_1-ponni-gram-flour-besan-premium-quality-protein-rich.jpg"> 
+<h3>Gram Flour</h3>
+<select id="size-gramflour">
+
+<option value="1/4 kg|25">1/4 kg - ₹25</option>
+<option value="1/2 kg|50">1/2 kg - ₹50</option>
+<option value="1 kg|100">1 kg - ₹100</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('GramFlour','size-gramflour',-1)">-</button>
+
+<span id="qty-GramFlour">0</span>
+
+<button onclick="addRice('GramFlour','size-gramflour',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="bajji-bonda flour" data-category="flour"> 
+<img src="https://instamart-media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/NI_CATALOG/IMAGES/ciw/2025/12/16/e0c91cd1-f571-4ec6-a7ce-1f299f4cbc24_TBWNXYIBFB_MN_15122025.png"> 
+<h3>Bajji-Bonda Flour</h3>
+<select id="size-bajji">
+
+<option value="1/4 kg|35">1/4 kg - ₹35</option>
+<option value="1/2 kg|70">1/2 kg - ₹70</option>
+<option value="1 kg|140">1 kg - ₹140</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('BajjiBondaFlour','size-bajji',-1)">-</button>
+
+<span id="qty-BajjiBondaFlour">0</span>
+
+<button onclick="addRice('BajjiBondaFlour','size-bajji',1)">+</button>
+
+</div>
+
+</div>
 
 <!-- JUICES --> 
 <div class="product" data-name="mango juice" data-category="juice"> 
@@ -765,6 +1119,491 @@ Cart (<span id="cartCount">0</span>)
 </div>
  
 </div>
+
+<div class="product" data-name="lemon juice" data-category="juice"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40315651_1-dailee-lemon-soft-drink.jpg">
+ <h3>Lemon Juice</h3> 
+<div class="price">₹10</div> 
+<div class="qty-box">
+
+<button onclick="changeProductQty('Lemon Juice',10,-1)">
+-
+</button>
+
+<span id="qty-LemonJuice">
+0
+</span>
+
+<button onclick="changeProductQty('Lemon Juice',10,1)">
++
+</button>
+
+</div>
+ 
+</div>
+
+<div class="product" data-name="paneer soda" data-category="juice"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40315660_1-meriba-paneer-drink.jpg">
+ <h3>Paneer Soda</h3> 
+<div class="price">₹10</div> 
+<div class="qty-box">
+
+<button onclick="changeProductQty('Paneer Soda',10,-1)">
+-
+</button>
+
+<span id="qty-PaneerSoda">
+0
+</span>
+
+<button onclick="changeProductQty('Paneer Soda',10,1)">
++
+</button>
+
+</div>
+ 
+</div>
+
+<div class="product" data-name="bovonto" data-category="juice"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40315656_1-jinthaaa-sweetened-soft-drink.jpg">
+ <h3>Bovonto</h3> 
+<div class="price">₹10</div> 
+<div class="qty-box">
+
+<button onclick="changeProductQty('Bovonto',10,-1)">
+-
+</button>
+
+<span id="qty-Bovonto">
+0
+</span>
+
+<button onclick="changeProductQty('Bovonto',10,1)">
++
+</button>
+
+</div>
+ 
+</div>
+
+<div class="product" data-name="lemon salt soda" data-category="juice"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40315661_1-dailee-lemon-salt-soda.jpg">
+ <h3>Lemon Salt Soda</h3> 
+<div class="price">₹10</div> 
+<div class="qty-box">
+
+<button onclick="changeProductQty('Lemon Salt Soda',10,-1)">
+-
+</button>
+
+<span id="qty-LemonSaltSoda">
+0
+</span>
+
+<button onclick="changeProductQty('Lemon Salt Soda',10,1)">
++
+</button>
+
+</div>
+ 
+</div>
+
+<div class="product" data-name="sting" data-category="juice"> 
+<img src="https://5.imimg.com/data5/SELLER/Default/2021/5/GA/QN/UA/107425127/250ml-sting-energy-drink.jpg">
+ <h3>Sting</h3> 
+<div class="price">₹10</div> 
+<div class="qty-box">
+
+<button onclick="changeProductQty('Sting',10,-1)">
+-
+</button>
+
+<span id="qty-Sting">
+0
+</span>
+
+<button onclick="changeProductQty('Sting',10,1)">
++
+</button>
+
+</div>
+ 
+</div>
+
+<div class="product" data-name="thums up" data-category="juice"> 
+<img src="https://www.bbassets.com/media/uploads/p/xl/251014_12-thums-up-soft-drink.jpg"> 
+<h3>Thums Up</h3>
+<select id="size-up">
+
+<option value="250 ml|20">250 ml - ₹20</option>
+<option value="1 L|100">1 L - ₹100</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('ThumsUp','size-up',-1)">-</button>
+
+<span id="qty-ThumsUp">0</span>
+
+<button onclick="addRice('ThumsUp','size-up',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="7 up" data-category="juice"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40130830_10-7-up-soft-drink-lemon.jpg"> 
+<h3>7 Up</h3>
+<select id="size-7">
+
+<option value="400 ml|20">400 ml - ₹20</option>
+<option value="1 L|100">1 L - ₹100</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('7Up','size-7',-1)">-</button>
+
+<span id="qty-7Up">0</span>
+
+<button onclick="addRice('7Up','size-7',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="limca" data-category="juice"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40313626_1-limca-soft-drink-lime-lemon-flavoured.jpg">
+ <h3>Limca</h3> 
+<div class="price">₹20</div> 
+<div class="qty-box">
+
+<button onclick="changeProductQty('Limca',20,-1)">
+-
+</button>
+
+<span id="qty-Limca">
+0
+</span>
+
+<button onclick="changeProductQty('Limca',20,1)">
++
+</button>
+
+</div>
+ 
+</div>
+
+<div class="product" data-name="coca-cola" data-category="juice"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40032980_9-coca-cola-soft-drink-original-taste.jpg">
+ <h3>Coca-Cola 740Ml</h3> 
+<div class="price">₹40</div> 
+<div class="qty-box">
+
+<button onclick="changeProductQty('Coca-Cola',40,-1)">
+-
+</button>
+
+<span id="qty-Coca-Cola">
+0
+</span>
+
+<button onclick="changeProductQty('Coca-Cola',40,1)">
++
+</button>
+
+</div>
+ 
+</div>
+
+<div class="product" data-name="maaza" data-category="juice"> 
+<img src="https://www.coca-cola.com/content/dam/onexp/in/en/home-page-test-img/brands/maaza/maaza-bottles/maaza_packshot_1100x1100.jpg">
+ <h3>Maaza 600Ml</h3> 
+<div class="price">₹35</div> 
+<div class="qty-box">
+
+<button onclick="changeProductQty('Maaza',35,-1)">
+-
+</button>
+
+<span id="qty-Maaza">
+0
+</span>
+
+<button onclick="changeProductQty('Maaza',35,1)">
++
+</button>
+
+</div>
+ 
+</div>
+
+<div class="product" data-name="fanta" data-category="juice"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/251019_8-fanta-soft-drink-orange-flavoured.jpg">
+ <h3>Fanta 600Ml</h3> 
+<div class="price">₹40</div> 
+<div class="qty-box">
+
+<button onclick="changeProductQty('Fanta',40,-1)">
+-
+</button>
+
+<span id="qty-Fanta">
+0
+</span>
+
+<button onclick="changeProductQty('Fanta',40,1)">
++
+</button>
+
+</div>
+ 
+</div>
+
+<!--DAIRY-->
+
+<div class="product" data-name="buttermilk" data-category="dairy"> 
+<img src="https://www.tirumalamilk.com/images/prodcuts/butter_milk/Spiced_Buttermilk_Pouch_175ml.webp">
+ <h3>ButterMilk</h3> 
+<div class="price">₹10</div> 
+<div class="qty-box">
+
+<button onclick="changeProductQty('Buttermilk',10,-1)">
+-
+</button>
+
+<span id="qty-Buttermilk">
+0
+</span>
+
+<button onclick="changeProductQty('Buttermilk',10,1)">
++
+</button>
+
+</div>
+ 
+</div>
+
+<div class="product" data-name="curd" data-category="dairy"> 
+<img src="https://www.bbassets.com/media/uploads/p/xl/40017394_3-thirumala-curd.jpg"> 
+<h3>Curd</h3>
+<select id="size-curd">
+
+<option value="120 g|10">120 g - ₹10</option>
+<option value="450 g|35">450 g - ₹35</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('Curd','size-curd',-1)">-</button>
+
+<span id="qty-Curd">0</span>
+
+<button onclick="addRice('Curd','size-curd',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="milk" data-category="dairy"> 
+<img src="https://www.tirumalamilk.com/images/prodcuts/milks/Milk_0007_Full_cream_milk_500ml.webp"> 
+<h3>Milk</h3>
+<select id="size-milk">
+
+<option value="200 ml|17">200 ml - ₹17</option>
+<option value="500 ml|39">500 ml - ₹39</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('Milk','size-milk',-1)">-</button>
+
+<span id="qty-Milk">0</span>
+
+<button onclick="addRice('Milk','size-milk',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="milk powder" data-category="dairy"> 
+<img src="https://m.media-amazon.com/images/I/61FPJUqhKSL._AC_UF894,1000_QL80_.jpg"> 
+<h3>Milk Powder</h3>
+<select id="size-powder">
+
+<option value="EveryDay|10">EveryDay - ₹10</option>
+<option value="Amulya 10g|5">Amulya 10g - ₹5</option>
+<option value="Amulya 20g|10">Amulya 20g - ₹10</option>
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('MilkPowder','size-powder',-1)">-</button>
+
+<span id="qty-MilkPowder">0</span>
+
+<button onclick="addRice('MilkPowder','size-powder',1)">+</button>
+
+</div>
+
+</div>
+
+<!--BEVERAGES-->
+
+<div class="product" data-name="sunrise" data-category="beverages"> 
+<img src="https://m.media-amazon.com/images/I/71oYPjbdyUL._AC_UF894,1000_QL80_.jpg"> 
+<h3>Sunrise Coffee</h3>
+<select id="size-sunrise">
+
+<option value="1.7 g |2">1.7 g - ₹2</option>
+<option value="3.8 g|5">3.8 g - ₹5</option>
+<option value="7.6 g|10">7.6 g - ₹10</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('Sunrise','size-sunrise',-1)">-</button>
+
+<span id="qty-Sunrise">0</span>
+
+<button onclick="addRice('Sunrise','size-sunrise',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="chakra gold" data-category="beverages"> 
+<img src="https://www.tatanutrikorner.com/cdn/shop/files/7160583-1_Tata_Tea_Chakra_Gold_ROS_3D_Packshots_500gm_FOP_d6a631b5-54d4-4bbb-acb5-d307dcd9d3a7.png?v=1748858301&width=1946"> 
+<h3>Chakra Gold Tea</h3>
+<select id="size-tea">
+
+<option value="6 g|5">6 g - ₹5</option>
+<option value="15 g|10">15 g - ₹10</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('ChakraGold','size-tea',-1)">-</button>
+
+<span id="qty-ChakraGold">0</span>
+
+<button onclick="addRice('ChakraGold','size-tea',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="horlicks" data-category="beverages"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40359127_1-horlicks-classic-malt-nutrition-drink.jpg">
+ <h3>Horlicks</h3> 
+<div class="price">₹5</div> 
+<div class="qty-box">
+
+<button onclick="changeProductQty('Horlicks',5,-1)">
+-
+</button>
+
+<span id="qty-Horlicks">
+0
+</span>
+
+<button onclick="changeProductQty('Horlicks',5,1)">
++
+</button>
+
+</div>
+ 
+</div>
+
+<div class="product" data-name="boost" data-category="beverages"> 
+<img src="https://chennaionlineshopping.in/image/cache/catalog/Products/health-drinks/boost%205rs-800x800.jpg">
+ <h3>Boost</h3> 
+<div class="price">₹5</div> 
+<div class="qty-box">
+
+<button onclick="changeProductQty('Boost',5,-1)">
+-
+</button>
+
+<span id="qty-Boost">
+0
+</span>
+
+<button onclick="changeProductQty('Boost',5,1)">
++
+</button>
+
+</div>
+ 
+</div>
+
+<div class="product" data-name="water" data-category="beverages"> 
+<img src="https://tiimg.tistatic.com/fp/1/006/315/nice-aqua-drinking-water-868.jpg"> 
+<h3>Water Bottle</h3>
+<select id="size-water">
+
+<option value="500 ml|10">500 ml - ₹10</option>
+<option value="1 L|20">1 L - ₹20</option>
+<option value="2 L|30">2 L - ₹30</option>
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('WaterBottle','size-water',-1)">-</button>
+
+<span id="qty-WaterBottle">0</span>
+
+<button onclick="addRice('WaterBottle','size-water',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="water can" data-category="beverages"> 
+<img src="https://tiimg.tistatic.com/fp/1/007/703/pure-and-natural-healthy-good-surface-membrane-filter-hygienic-packaged-drinking-water-packed-can-254.jpg"> 
+<h3>Water Can</h3>
+<select id="size-can">
+
+<option value="25 L(without can)|30">25 L(without can) - ₹30</option>
+<option value="25 L(with can)|150">25 L(with can) - ₹150</option>
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('WaterCan','size-can',-1)">-</button>
+
+<span id="qty-WaterCan">0</span>
+
+<button onclick="addRice('WaterCan','size-can',1)">+</button>
+
+</div>
+
+</div>
+
 
  <!-- ICE CREAM --> 
 
@@ -972,6 +1811,104 @@ Cart (<span id="cartCount">0</span>)
 </div> 
 
 </div> 
+
+<!--DETERGENTS-->
+
+<div class="product" data-name="ariel" data-category="detergents"> 
+<img src="https://www.quickpantry.in/cdn/shop/products/ariel-perfect-washing-powder-sachet-quick-pantry-2.png?v=1710538093"> 
+<h3>Ariel</h3>
+<select id="size-ariel">
+
+<option value="Powder 65g|10">Powder 65g - ₹10</option>
+<option value="Liquid 60g|10">Liquid 60g - ₹10</option>
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('Ariel','size-ariel',-1)">-</button>
+
+<span id="qty-Ariel">0</span>
+
+<button onclick="addRice('Ariel','size-ariel',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="rin" data-category="detergents"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40206548_3-rin-detergent-powder-anti-bac.jpg"> 
+<h3>Rin</h3>
+<select id="size-rin">
+
+<option value="Soap|10">Soap - ₹10</option>
+<option value="Powder 90g|10">Powder 90g - ₹10</option>
+<option value="Powder 1Kg|120">Powder 1Kg - ₹120</option>
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('Rin','size-rin',-1)">-</button>
+
+<span id="qty-Rin">0</span>
+
+<button onclick="addRice('Rin','size-rin',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="surfexcel" data-category="detergents"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/266951_16-surf-excel-quick-wash-detergent-powder.jpg"> 
+<h3>Surf Excel</h3>
+<select id="size-surfexcel">
+
+<option value="Soap|10">Soap - ₹10</option>
+<option value="Liquid|10">Liquid - ₹10</option>
+<option value="Powder 1/2 Kg|110">Powder 1/2 Kg - ₹110</option>
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('Surfexcel','size-surfexcel',-1)">-</button>
+
+<span id="qty-Surfexcel">0</span>
+
+<button onclick="addRice('Surfexcel','size-surfexcel',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="tide" data-category="detergents"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40354915_2-tide-jasmine-rose-double-power-detergent-powder.jpg"> 
+<h3>Tide</h3>
+<select id="size-tide">
+
+<option value="Powder 1/2 Kg|70">Powder 1/2 Kg - ₹70</option>
+<option value="Powder 1 Kg|140">Powder 1 Kg - ₹140</option>
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('Tide','size-tide',-1)">-</button>
+
+<span id="qty-Tide">0</span>
+
+<button onclick="addRice('Tide','size-tide',1)">+</button>
+
+</div>
+
+</div> 
+
+
 
 </div> 
 
