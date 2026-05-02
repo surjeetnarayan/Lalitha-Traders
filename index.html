@@ -318,9 +318,9 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="dashboard">
-<h3>📊 Sales Dashboard</h3>
-<p>Total Price: <span id="orders">0</span></p>
-<p>Total Items in Cart: <span id="items">0</span></p>
+<h3>💰 Total Summary</h3>
+<p>💵 Total Amount: <span id="orders">0</span></p>
+<p>🛒 Total Items in Cart: <span id="items">0</span></p>
 </div>
 
 <div class="container">
@@ -354,12 +354,12 @@ Cart (<span id="cartCount">0</span>)
 <option value="1 kg|50">1 kg - ₹50</option>
 <option value="24 kg|1080">Full Bag 24 kg - ₹1080</option>
 
-</select>
+</select>	
 
 <br><br>
 
 <div class="qty-box">
-
+	
 <button onclick="addRice('ArunaRice','size-aruna',-1)">-</button>
 
 <span id="qty-ArunaRice">0</span>
@@ -2040,11 +2040,199 @@ Cart (<span id="cartCount">0</span>)
 </div> 
 </div>
 
+<div class="product" data-name="nature" data-category="detergents">
+ <img src="https://www.bbassets.com/media/uploads/p/xl/40057551_4-nature-power-beauty-soap-papaya.jpg">
+ <h3>Nature Power Papaya Soap</h3> <div class="price">₹45</div>
+  <div class="qty-box">
+
+<button onclick="changeProductQty('NaturePower',45,-1)">
+-
+</button>
+
+<span id="qty-NaturePower">
+0
+</span>
+
+<button onclick="changeProductQty('NaturePower',45,1)">
++
+</button>
+
+</div> 
+</div>
+
+<div class="product" data-name="lux" data-category="detergents">
+ <img src="https://www.bbassets.com/media/uploads/p/l/306171_8-lux-beauty-soap-for-glowing-skin-rose-vitamin-e.jpg">
+ <h3>Lux Soap</h3> <div class="price">₹35</div>
+  <div class="qty-box">
+
+<button onclick="changeProductQty('Lux',35,-1)">
+-
+</button>
+
+<span id="qty-Lux">
+0
+</span>
+
+<button onclick="changeProductQty('Lux',35,1)">
++
+</button>
+
+</div> 
+</div>
+
+<div class="product" data-name="vivel" data-category="detergents">
+ <img src="https://www.bbassets.com/media/uploads/p/l/40333279_1-vivel-lotus-oil-aloe-vera-soap.jpg">
+ <h3>Vivel Soap</h3> <div class="price">₹40</div>
+  <div class="qty-box">
+
+<button onclick="changeProductQty('Vivel',40,-1)">
+-
+</button>
+
+<span id="qty-Vivel">
+0
+</span>
+
+<button onclick="changeProductQty('Vivel',40,1)">
++
+</button>
+
+</div> 
+</div>
+
+<div class="product" data-name="dettol" data-category="detergents">
+ <img src="https://www.bbassets.com/media/uploads/p/l/40325772_5-dettol-icy-cool-soap.jpg">
+ <h3>Dettol Icy Cool Soap</h3> <div class="price">₹40</div>
+  <div class="qty-box">
+
+<button onclick="changeProductQty('Dettol',40,-1)">
+-
+</button>
+
+<span id="qty-Dettol">
+0
+</span>
+
+<button onclick="changeProductQty('Dettol',40,1)">
++
+</button>
+
+</div> 
+</div>
+
+<div class="product" data-name="colgate" data-category="detergents">
+ <img src="https://m.media-amazon.com/images/I/61Ym3SMl+5L._AC_UF350,350_QL80_.jpg">
+ <h3>Colgate ToothPaste</h3> <div class="price">₹10</div>
+  <div class="qty-box">
+
+<button onclick="changeProductQty('Colgate',10,-1)">
+-
+</button>
+
+<span id="qty-Colgate">
+0
+</span>
+
+<button onclick="changeProductQty('Colgate',10,1)">
++
+</button>
+
+</div> 
+</div>
+
+<div class="product" data-name="dabur" data-category="detergents"> 
+<img src="https://m.media-amazon.com/images/I/81QobQ9NgEL._AC_UF1000,1000_QL80_.jpg"> 
+<h3>Dabur Red Toothpaste</h3>
+<select id="size-red">
+
+<option value="Paste 18g|10">Paste 18g - ₹10</option>
+<option value="Paste 40g|36">Paste 40g - ₹36</option>
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('DaburRed','size-red',-1)">-</button>
+
+<span id="qty-DaburRed">0</span>
+
+<button onclick="addRice('DaburRed','size-red',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="home" data-category="detergents">
+ <img src="https://5.imimg.com/data5/SELLER/Default/2023/10/349460678/FF/YO/OA/55624474/dp.jpeg">
+ <h3>Home Guard Toilet Cleaner</h3> <div class="price">₹30</div>
+  <div class="qty-box">
+
+<button onclick="changeProductQty('HomeGuard',30,-1)">
+-
+</button>
+
+<span id="qty-HomeGuard">
+0
+</span>
+
+<button onclick="changeProductQty('HomeGuard',30,1)">
++
+</button>
+
+</div> 
+</div>
+
+<div class="product" data-name="Homeg" data-category="detergents"> 
+<img src="https://instamart-media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/NI_CATALOG/IMAGES/ciw/2025/12/18/d507e307-b262-4ffd-aa12-ddc3f1bf29bd_E99JCA5ZT0_MN_18122025.png"> 
+<h3>Home Guard Floor Cleaner</h3>
+<select id="size-floor">
+
+<option value=" 250ml|20">250ml - ₹20</option>
+<option value="500ml|80">500ml - ₹80</option>
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('HomeGuardFloorCleaner','size-floor',-1)">-</button>
+
+<span id="qty-HomeGuardFloorCleaner">0</span>
+
+<button onclick="addRice('HomeGuardFloorCleaner','size-floor',1)">+</button>
+
+</div>
+
+</div>
+<div class="product" data-name="kiru" data-category="detergents">
+ <img src="https://sindirasupermarket.com/wp-content/uploads/2020/11/phenyl750.jpg">
+ <h3>Kirubas White Phenyl</h3> <div class="price">₹35</div>
+  <div class="qty-box">
+
+<button onclick="changeProductQty('Kirubas',35,-1)">
+-
+</button>
+
+<span id="qty-Kirubas">
+0
+</span>
+
+<button onclick="changeProductQty('Kirubas',35,1)">
++
+</button>
+
+</div> 
+</div>
+
+
+
 
 
 </div> 
 
 </div>
+
 
 <a class="whatsapp" id="whatsappBtn"
 onclick="updateWhatsAppLink()"
