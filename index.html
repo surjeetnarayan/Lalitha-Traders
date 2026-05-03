@@ -332,6 +332,7 @@ Cart (<span id="cartCount">0</span>)
 <div onclick="filterCategory('masala')">🌶️ Masala</div>
 <div onclick="filterCategory('dal')">🥣 Dal</div>
 <div onclick="filterCategory('flour')">🌾 Flour</div>
+<div onclick="filterCategory('oil')">🛢️ Oils & Ghee</div>
 <div onclick="filterCategory('juice')">🧃 Juices</div>
 <div onclick="filterCategory('dairy')">🥛 Dairy</div>
 <div onclick="filterCategory('beverages')">🥤 Beverages</div>
@@ -1075,6 +1076,205 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 </div>
+
+<!--OILS  & GHEE-->
+
+<div class="product" data-name="sunflower oil" data-category="oil"> 
+<img src="https://m.media-amazon.com/images/I/81FbVYZJYyL._SY741_.jpg"> 
+<h3>Sunflower Oil</h3>
+<select id="size-sun">
+
+<option value="1/2 L|80">1/2 L - ₹80</option>
+<option value="1 L|160">1 L - ₹160</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('SunflowerOil','size-sun',-1)">-</button>
+
+<span id="qty-SunflowerOil">0</span>
+
+<button onclick="addRice('SunflowerOil','size-sun',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="mustard oil" data-category="oil"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40293853_2-nutrela-kachi-ghani-mustard-oil.jpg"> 
+<h3>Mustard Oil</h3>
+<select id="size-mus">
+
+<option value="1/2 L|100">1/2 L - ₹100</option>
+<option value="1 L|200">1 L - ₹200</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('MustardOil','size-mus',-1)">-</button>
+
+<span id="qty-MustardOil">0</span>
+
+<button onclick="addRice('MustardOil','size-mus',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="coconut oil" data-category="oil"> 
+<img src="https://m.media-amazon.com/images/I/61fapIFwFmL._AC_UF1000,1000_QL80_.jpg"> 
+<h3>Coconut Oil</h3>
+<select id="size-coco">
+
+<option value="20 ml|10">20 ml - ₹10</option>
+<option value="40 ml|20">40 ml - ₹20</option>
+<option value="250 ml|157">250 ml - ₹157</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('CoconutOil','size-coco',-1)">-</button>
+
+<span id="qty-CoconutOil">0</span>
+
+<button onclick="addRice('CoconutOil','size-coco',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="sesame oil" data-category="oil"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/100003486_1-idhayam-oil-sesame.jpg"> 
+<h3>Sesame Oil</h3>
+<select id="size-sea">
+
+<option value="1/2 L|205">1/2 L - ₹205</option>
+<option value="1 L|410">1 L - ₹410</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('SesameOil','size-sea',-1)">-</button>
+
+<span id="qty-SesameOil">0</span>
+
+<button onclick="addRice('SesameOil','size-sea',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="castor oil" data-category="oil"> 
+<img src="https://www.bbassets.com/media/uploads/p/xl/40141959_2-mr-gold-nakshatra-pooja-oil.jpg"> 
+<h3>Castor Oil</h3>
+<select id="size-cas">
+
+<option value="1/2 L|70">1/2 L - ₹70</option>
+<option value="1 L|140">1 L - ₹140</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('CastorOil','size-cas',-1)">-</button>
+
+<span id="qty-CastorOil">0</span>
+
+<button onclick="addRice('CastorOil','size-cas',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="navratna oil" data-category="oil"> 
+<img src="https://m.media-amazon.com/images/I/81gwWLKw5jL.jpg_BO30,255,255,255_UF750,750_SR1910,1000,0,C_QL100_.jpg"> 
+<h3>Navratna Oil</h3>
+<select id="size-nav">
+
+<option value="1 Packet|1">1 Packet - ₹1</option>
+<option value="5 Packet|5">5 Packet - ₹5</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('NavratnaOil','size-nav',-1)">-</button>
+
+<span id="qty-NavratnaOil">0</span>
+
+<button onclick="addRice('NavratnaOil','size-nav',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="vanaspati" data-category="oil"> 
+<img src="https://kaleesuwari.com/storage/products/15/gold_winner_Vanspati_500ml.png"> 
+<h3>Vanaspati</h3>
+<select id="size-vana">
+
+<option value="1 Packet|10">1 Packet - ₹10</option>
+<option value="5 Packet|50">5 Packet - ₹50</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('Vanaspati','size-vana',-1)">-</button>
+
+<span id="qty-Vanaspati">0</span>
+
+<button onclick="addRice('Vanaspati','size-vana',1)">+</button>
+
+</div>
+
+</div>
+
+<div class="product" data-name="ghee" data-category="oil"> 
+<img src="https://gropharm.in/wp-content/uploads/2025/08/download.jpg"> 
+<h3>Ghee</h3>
+<select id="size-ghee">
+
+<option value="10 ml|20">10 ml - ₹20</option>
+<option value="100 ml|80">100 ml - ₹80</option>
+
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('Ghee','size-ghee',-1)">-</button>
+
+<span id="qty-Ghee">0</span>
+
+<button onclick="addRice('Ghee','size-ghee',1)">+</button>
+
+</div>
+
+</div>
+
+
+
+
 
 <!-- JUICES --> 
 <div class="product" data-name="mango juice" data-category="juice"> 
@@ -2205,6 +2405,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 </div>
+
 <div class="product" data-name="kiru" data-category="detergents">
  <img src="https://sindirasupermarket.com/wp-content/uploads/2020/11/phenyl750.jpg">
  <h3>Kirubas White Phenyl</h3> <div class="price">₹35</div>
@@ -2225,8 +2426,159 @@ Cart (<span id="cartCount">0</span>)
 </div> 
 </div>
 
+<div class="product" data-name="karthika" data-category="detergents"> 
+<img src="https://ppsnco.com/wp-content/uploads/2021/10/KARTHIKA-1-300x300-1.png"> 
+<h3>Karthika Herbal Powder</h3>
+<select id="size-kart">
 
+<option value="5 Packet|10">5 Packet - ₹10</option>
+<option value="10 Packet|20">10 Packet - ₹20</option>
+</select>
 
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('Karthika','size-kart',-1)">-</button>
+
+<span id="qty-Karthika">0</span>
+
+<button onclick="addRice('Karthika','size-kart',1)">+</button>
+
+</div>
+</div>
+
+<div class="product" data-name="karthikas" data-category="detergents"> 
+<img src="https://m.media-amazon.com/images/I/41BNYLq846L._AC_UF1000,1000_QL80_.jpg"> 
+<h3>Karthika Shampoo</h3>
+<select id="size-karti">
+
+<option value="5 Packet|5">5 Packet - ₹5</option>
+<option value="10 Packet|10">10 Packet - ₹10</option>
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('KarthikaShampoo','size-karti',-1)">-</button>
+
+<span id="qty-KarthikaShampoo">0</span>
+
+<button onclick="addRice('KarthikaShampoo','size-karti',1)">+</button>
+
+</div>
+</div>
+
+<div class="product" data-name="meera" data-category="detergents"> 
+<img src="https://cdn.dotpe.in/longtail/store-items/6732496/SSnaKS6t.jpeg"> 
+<h3>Meera Shampoo</h3>
+<select id="size-meera">
+
+<option value="5 Packet|10">5 Packet - ₹10</option>
+<option value="10 Packet|20">10 Packet - ₹20</option>
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('MeeraShampoo','size-meera',-1)">-</button>
+
+<span id="qty-MeeraShampoo">0</span>
+
+<button onclick="addRice('MeeraShampoo','size-meera',1)">+</button>
+
+</div>
+</div>
+
+<div class="product" data-name="head" data-category="detergents"> 
+<img src="https://img.clevup.in/334623/SKU-0592_0-1744442432764.jpg?format=webp"> 
+<h3>Head & Shoulders Shampoo</h3>
+<select id="size-head">
+
+<option value="5 Packet|10">5 Packet - ₹10</option>
+<option value="10 Packet|20">10 Packet - ₹20</option>
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('Head&ShouldersShampoo','size-head',-1)">-</button>
+
+<span id="qty-Head&ShouldersShampoo">0</span>
+
+<button onclick="addRice('Head&ShouldersShampoo','size-head',1)">+</button>
+
+</div>
+</div>
+
+<div class="product" data-name="clinic" data-category="detergents"> 
+<img src="https://img.clevup.in/410557/TetleyLemon-1736857396217.jpeg?format=webp"> 
+<h3>Clinic Plus Shampoo</h3>
+<select id="size-clinic">
+
+<option value="5 Packet|5">5 Packet - ₹5</option>
+<option value="10 Packet|10">10 Packet - ₹10</option>
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('ClinicPlusShampoo','size-clinic',-1)">-</button>
+
+<span id="qty-ClinicPlusShampoo">0</span>
+
+<button onclick="addRice('ClinicPlusShampoo','size-clinic',1)">+</button>
+
+</div>
+</div>
+
+<div class="product" data-name="dove" data-category="detergents"> 
+<img src="https://m.media-amazon.com/images/I/41bkp7vAI4L.jpg"> 
+<h3>Dove Shampoo</h3>
+<select id="size-dove">
+
+<option value="5 Packet|10">5 Packet - ₹10</option>
+<option value="10 Packet|20">10 Packet - ₹20</option>
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('DoveShampoo','size-dove',-1)">-</button>
+
+<span id="qty-DoveShampoo">0</span>
+
+<button onclick="addRice('DoveShampoo','size-dove',1)">+</button>
+
+</div>
+</div>
+
+<div class="product" data-name="comfort" data-category="detergents"> 
+<img src="https://storage.googleapis.com/shy-pub/262113/1664635516801_ComfortBlack4RsSaram.jpeg"> 
+<h3>Comfort Fabric Conditioner</h3>
+<select id="size-condi">
+
+<option value="5 Packet|20">5 Packet - ₹20</option>
+<option value="10 Packet|40">10 Packet - ₹40</option>
+</select>
+
+<br><br>
+
+<div class="qty-box">
+
+<button onclick="addRice('ComfortFabricConditioner','size-condi',-1)">-</button>
+
+<span id="qty-ComfortFabricConditioner">0</span>
+
+<button onclick="addRice('ComfortFabricConditioner','size-condi',1)">+</button>
+
+</div>
+</div>
 
 
 </div> 
