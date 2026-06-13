@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +8,64 @@
 
 <style>
 
+.input-title{
+    display:block;
+    font-weight:bold;
+    font-size:18px;
+    margin-bottom:8px;
+    margin-left:10px;
+}
+
+.remember-container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin:15px 0;
+}
+
+.remember-container input[type="checkbox"]{
+    width:auto !important;
+    height:auto !important;
+    margin:0 !important;
+    padding:0 !important;
+}
+
+.remember-container label{
+    margin:0;
+    padding:0;
+    font-size:18px;
+    font-weight:normal;
+}
+
 .logout-btn{
 background:#d9534f;
 color:white;
 display:none;
+}
+
+.login-box{
+    text-align:center;
+}
+
+.login-box input{
+    width:80%;
+    padding:12px;
+    border-radius:10px;
+}
+
+.login-box button{
+    margin:5px;
+}
+
+
+.product:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+
+    cursor:pointer;
 }
 
 /* CART PANEL */
@@ -93,6 +148,18 @@ font-size:18px;
 font-weight:bold;
 text-align:center;
 border-top:1px solid #ddd;
+}
+
+.product img{
+
+transition:.3s;
+
+}
+
+.product:hover img{
+
+transform:scale(1.08);
+
 }
 
 /* MOBILE */
@@ -244,12 +311,13 @@ text-align:center;
 z-index:1000;
 }
 
-.login-box input{
-padding:10px;
-width:230px;
-margin:8px 0;
-border-radius:8px;
-border:1px solid #ccc;
+.login-box input[type="text"],
+.login-box input[type="password"]{
+    padding:10px;
+    width:230px;
+    margin:8px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
 }
 
 @media(max-width:800px){
@@ -293,6 +361,33 @@ cursor:pointer;
 background:#c9302c;
 }
 
+.product{
+    transition:0.3s;
+}
+
+.product:hover{
+
+    transform:translateY(-6px) scale(1.03);
+
+    box-shadow:0 10px 20px rgba(0,0,0,.2);
+
+    cursor:pointer;
+}
+
+footer{
+
+margin-top:40px;
+
+padding:30px;
+
+background:#222;
+
+color:white;
+
+text-align:center;
+
+}
+
 </style>
 </head>
 <body>
@@ -303,15 +398,31 @@ background:#c9302c;
 </div>
 
 <div class="search-bar">
-<input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts()">
+<input type="text" id="searchInput" placeholder="🔍 Search products..." onkeyup="searchProducts()">
 </div>
 
-<button class="login-btn" onclick="openLogin()">Login</button>
+<button
+id="loginBtn"
+class="login-btn"
+onclick="openLogin()">
+Login
+</button>
 <button class="logout-btn" onclick="logoutUser()">Logout</button>
 <button class="cart-btn" onclick="openCartPanel()">
 Cart (<span id="cartCount">0</span>)
 </button>
 </div>
+
+<p id="noProducts"
+
+style="display:none;
+text-align:center;
+font-size:20px;
+margin-top:20px;">
+
+😔 No Products Found
+
+</p>
 
 <div class="banner">
 <img src="banner.png" alt="Lalitha Traders Banner">
@@ -1511,7 +1622,6 @@ Cart (<span id="cartCount">0</span>)
 <span id="qty-CocaCola">0</span>
 
 <button onclick="changeProductQty('Coca-Cola',40,1)">+</button>
-
 </div>
  
 </div>
@@ -2580,26 +2690,57 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 
-<a class="whatsapp" id="whatsappBtn"
-onclick="updateWhatsAppLink()"
-href="#"
-target="_blank">
-WhatsApp Order
+<a class="whatsapp"
+   id="whatsappBtn"
+   href="#"
+   onclick="updateWhatsAppLink(); return false;">
+    WhatsApp Order
 </a>
 
 <div id="loginBox" class="login-box">
 
-<h2>User Login</h2>
+<h2>👤 Lalitha Traders Login</h2>
 
-<input type="text" id="username" placeholder="Enter Username">
+<label class="input-title">
+    Username:
+</label>
 
-<input type="password" id="password" placeholder="Enter Password">
+<input
+type="text"
+id="username"
+placeholder="Enter Username">
 
-<br>
+<br><br>
 
-<button onclick="registerUser()">Register</button>
-<button onclick="loginUser()">Login</button>
-<button onclick="closeLogin()">Close</button>
+<label class="input-title">
+    Password:
+</label>
+
+<input
+type="password"
+id="password"
+placeholder="Enter Password">
+
+<br><br>
+
+<div class="remember-container">
+    <input type="checkbox" id="rememberMe">
+    <label for="rememberMe">Remember Me</label>
+</div>
+
+<br><br>
+
+<button onclick="registerUser()">
+Register
+</button>
+
+<button onclick="loginUser()">
+Login
+</button>
+
+<button onclick="closeLogin()">
+Close
+</button>
 
 <p id="loginStatus"></p>
 
@@ -2634,34 +2775,39 @@ updateCartDisplay();
 
 }
 
-function searchProducts(){
+function searchProducts() {
 
-let input =
-document.getElementById("searchInput")
-.value
-.toLowerCase();
+    let input = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
 
-let products =
-document.querySelectorAll(".product");
+    let products = document.querySelectorAll(".product");
 
-products.forEach(p=>{
+    let found = false;
 
-let name =
-p.getAttribute("data-name")
-.toLowerCase();
+    products.forEach(product => {
 
-if(name.includes(input)){
+        let name = (
+            product.getAttribute("data-name") || ""
+        ).toLowerCase();
 
-p.style.display = "block";
+        if (name.includes(input)) {
 
-}else{
+            product.style.display = "block";
+            found = true;
 
-p.style.display = "none";
+        } else {
 
-}
+            product.style.display = "none";
 
-});
+        }
 
+    });
+
+    document.getElementById("noProducts").style.display =
+        found ? "none" : "block";
 }
 
 function filterCategory(category){
@@ -2684,14 +2830,15 @@ function updateWhatsAppLink(){
 
 if(cart.length === 0){
 
-alert("Cart is empty");
+showToast("🛒 Cart is empty");
 
 return;
 
 }
 
 let loggedUser =
-localStorage.getItem("loggedInUser");
+localStorage.getItem("loggedInUser") ||
+sessionStorage.getItem("loggedInUser");
 
 if(!loggedUser){
 
@@ -2756,10 +2903,8 @@ phone +
 "?text=" +
 message;
 
-document.getElementById(
-"whatsappBtn"
-).href = url;
-alert("Opening WhatsApp to place your order 📦");
+alert("📱 Redirecting to WhatsApp...");
+window.open(url, "_blank");
 
 }
 
@@ -2782,12 +2927,21 @@ document.getElementById("loginStatus").innerText =
 return;
 }
 
+if (localStorage.getItem(user)) {
+    document.getElementById("loginStatus").innerText =
+    "Username already exists ❌";
+    return;
+}
+
 localStorage.setItem(user, pass);
 
 document.getElementById("loginStatus").innerText =
 "Account created successfully ✅";
+document.getElementById("username").value = "";
+document.getElementById("password").value = "";
 
 }
+
 
 function loginUser(){
 
@@ -2801,13 +2955,25 @@ if(savedPass === pass){
 document.getElementById("loginStatus").innerText =
 "Login successful 🎉";
 
-localStorage.setItem("loggedInUser", user);
+setTimeout(() => {
 
-document.querySelector(".login-btn").innerText =
-"Welcome " + user;
+document.getElementById("loginStatus").innerText="";
+
+},2000);
+
+if (document.getElementById("rememberMe").checked) {
+    localStorage.setItem("loggedInUser", user);
+} else {
+    sessionStorage.setItem("loggedInUser", user);
+}
+
+document.getElementById("loginBtn").innerHTML =
+"👋 Welcome, " + user;
 
 document.querySelector(".logout-btn").style.display =
 "inline-block";
+
+document.getElementById("password").value = "";
 
 setTimeout(()=>{
 closeLogin();
@@ -2825,7 +2991,12 @@ document.getElementById("loginStatus").innerText =
 
 function logoutUser(){
 
+if(!confirm("Are you sure you want to logout?")){
+        return;
+    }
+
 localStorage.removeItem("loggedInUser");
+sessionStorage.removeItem("loggedInUser");
 
 document.querySelector(".login-btn").innerText =
 "Login";
@@ -2833,7 +3004,43 @@ document.querySelector(".login-btn").innerText =
 document.querySelector(".logout-btn").style.display =
 "none";
 
-alert("Logged out successfully");
+showToast("👋 Logged out successfully");
+
+}
+
+function showToast(message) {
+
+    let toast = document.createElement("div");
+
+    toast.innerHTML = message;
+
+    toast.style.position = "fixed";
+    toast.style.bottom = "20px";
+    toast.style.right = "20px";
+    toast.style.background = "#222";
+    toast.style.color = "white";
+    toast.style.padding = "12px 20px";
+    toast.style.borderRadius = "10px";
+    toast.style.boxShadow = "0 5px 15px rgba(0,0,0,0.3)";
+    toast.style.fontSize = "16px";
+    toast.style.zIndex = "99999";
+    toast.style.opacity = "0";
+    toast.style.transition = "0.4s";
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.style.opacity = "1";
+    }, 50);
+
+    setTimeout(() => {
+        toast.style.opacity = "0";
+
+        setTimeout(() => {
+            toast.remove();
+        }, 400);
+
+    }, 2000);
 
 }
 
@@ -2860,12 +3067,12 @@ qtyElement.innerText = item.qty;
 });
 
 let savedUser =
-localStorage.getItem("loggedInUser");
-
+localStorage.getItem("loggedInUser") ||
+sessionStorage.getItem("loggedInUser");
 if(savedUser){
 
 document.querySelector(".login-btn").innerText =
-"Welcome " + savedUser;
+"👋Welcome " + savedUser;
 
 document.querySelector(".logout-btn").style.display =
 "inline-block";
@@ -2888,7 +3095,7 @@ saveCart();
 updateCartDisplay();
 
 if(cart.length === 0){
-alert("Cart is empty");
+showToast("🛒 Cart is empty");
 }
 
 }
@@ -3153,6 +3360,7 @@ qty: 1
 
 if(qtyElement)
 qtyElement.innerText = 1;
+showToast("✅ " + name + " added");
 
 }
 
@@ -3242,6 +3450,10 @@ return date;
 
 function clearCart(){
 
+if(!confirm("🗑 Clear the entire cart?")){
+        return;
+    }
+
 cart = [];
 
 localStorage.removeItem("cart");
@@ -3264,7 +3476,7 @@ document.getElementById("cartItems").innerHTML = "";
 
 document.getElementById("cartTotal").innerText = 0;
 
-alert("Cart cleared successfully");
+showToast("🛒 Cart Cleared");
 closeCart();
 
 }
@@ -3369,9 +3581,19 @@ Total: ₹<span id="cartTotal">0</span>
 
 </div>
 
-<div class="footer">
-© 2026 Lalitha Traders | Retail Store 🏪
-</div>
+<footer>
+
+<h2>🏪 Lalitha Traders</h2>
+
+<p>📍 Gummidipoondi</p>
+
+<p>📞 +91 XXXXXXXXXX</p>
+
+<p>💬 WhatsApp Orders Available</p>
+
+<p>© 2026 Lalitha Traders</p>
+
+</footer>
 
 </body>
 </html>
