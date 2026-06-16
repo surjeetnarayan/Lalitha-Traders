@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <title>Lalitha Traders - Full Store System</title>
 
 <style>
@@ -225,28 +226,46 @@ border-radius:12px;
 box-shadow:0 3px 10px rgba(0,0,0,0.1);
 }
 
-.container{
-display:flex;
-padding:15px;
-gap:15px;
+.container {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    gap: 15px;
 }
 
-.sidebar{
-width:230px;
-background:white;
-padding:15px;
-border-radius:12px;
-box-shadow:0 3px 10px rgba(0,0,0,0.1);
+.category-title {
+    background: #ffffff;
+    color: #2E7D32;
+    border: 2px solid #4CAF50;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.sidebar {
+    width: 230px;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    height: fit-content;
 }
 
-.sidebar div{
-padding:10px;
-border-bottom:1px solid #eee;
-cursor:pointer;
+.sidebar div {
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
-.sidebar div:hover{
-background:#f3f3f3;
+.sidebar div:hover {
+    background: #4CAF50;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(76,175,80,0.3);
 }
 
 .products{
@@ -284,17 +303,54 @@ padding:16px;
 margin-top:20px;
 }
 
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:15px 20px;
-border-radius:50px;
-font-size:18px;
-text-decoration:none;
-cursor:pointer;
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+
+    /* Border & Outline */
+    border: 3px solid white;
+    outline: 2px solid #128C7E;
+
+    /* Shadow */
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+
+    /* Animation */
+    transition: all 0.3s ease;
+}
+
+.whatsapp:hover {
+    background: #1EBE5D;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow:
+        0 0 15px #25D366,
+        0 0 30px rgba(37, 211, 102, 0.8),
+        0 8px 25px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp:active {
+    transform: scale(0.96);
+}
+
+.no-products {
+    display: none;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+    padding: 15px;
+    background: white;
+    color: #d9534f;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 .login-box{
@@ -413,20 +469,14 @@ Cart (<span id="cartCount">0</span>)
 </button>
 </div>
 
-<p id="noProducts"
-
-style="display:none;
-text-align:center;
-font-size:20px;
-margin-top:20px;">
-
-😔 No Products Found
-
-</p>
 
 <div class="banner">
-<img src="banner.png" alt="Lalitha Traders Banner">
+    <img src="banner.png" alt="Lalitha Traders Banner">
 </div>
+
+<p id="noProducts" class="no-products">
+    😔 No Products Found
+</p>
 
 <div class="dashboard">
 <h3>💰 Total Summary</h3>
@@ -437,7 +487,7 @@ margin-top:20px;">
 <div class="container">
 
 <div class="sidebar">
-<h3>Categories</h3>
+<h3 class="category-title">📂 Categories</h3>
 <div onclick="filterCategory('all')">🛒 All</div>
 <div onclick="filterCategory('rice')">🍚 Rice</div>
 <div onclick="filterCategory('masala')">🌶️ Masala</div>
@@ -2694,7 +2744,7 @@ margin-top:20px;">
    id="whatsappBtn"
    href="#"
    onclick="updateWhatsAppLink(); return false;">
-    WhatsApp Order
+    <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
 </a>
 
 <div id="loginBox" class="login-box">
@@ -3589,7 +3639,7 @@ Total: ₹<span id="cartTotal">0</span>
 
 <p>📞 +91 9952449826</p>
 
-<p>💬 WhatsApp Orders Available</p>
+<i class="fa-brands fa-whatsapp"></i> WhatsApp Orders Available 
 
 <p>© 2026 Lalitha Traders</p>
 
