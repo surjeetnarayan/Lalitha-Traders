@@ -9,6 +9,25 @@
 
 <style>
 
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+
+    background: linear-gradient(90deg,#131921,#232f3e);
+    color: white;
+    padding: 14px 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-bar.sticky {
+    position: static;
+    flex: 1;
+    min-width: 0;
+}	
 .input-title{
     display:block;
     font-weight:bold;
@@ -453,8 +472,10 @@ text-align:center;
 <img src="logo.png" alt="LT Logo">
 </div>
 
-<div class="search-bar">
-<input type="text" id="searchInput" placeholder="🔍 Search products..." onkeyup="searchProducts()">
+<div class="search-bar sticky">
+    <input type="text" id="searchInput"
+           placeholder="🔍 Search products..."
+           onkeyup="searchProducts()">
 </div>
 
 <button
@@ -2798,8 +2819,39 @@ Close
 
 <script>
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-updateCartDisplay();
+let cart = [];
+
+try {
+
+    let savedCart = JSON.parse(
+        localStorage.getItem("cart")
+    );
+
+    if (Array.isArray(savedCart)) {
+
+        cart = savedCart.filter(item =>
+            item &&
+            typeof item.name === "string" &&
+            Number.isFinite(Number(item.price)) &&
+            Number(item.price) >= 0 &&
+            Number.isInteger(Number(item.qty)) &&
+            Number(item.qty) > 0
+        );
+
+        cart.forEach(item => {
+            item.price = Number(item.price);
+            item.qty = Number(item.qty);
+        });
+
+    }
+
+} catch (error) {
+
+    console.error("Cart loading error:", error);
+
+    cart = [];
+
+}
 
 function addToCart(name, price){
 
@@ -2825,17 +2877,17 @@ updateCartDisplay();
 
 }
 
-function searchProducts() {
+let activeCategory = "all";
+
+function applyProductFilters() {
 
     let input = document
         .getElementById("searchInput")
-        .value
-        .toLowerCase()
-        .trim();
+        .value.toLowerCase().trim();
 
     let products = document.querySelectorAll(".product");
 
-    let found = false;
+    let found = 0;
 
     products.forEach(product => {
 
@@ -2843,10 +2895,19 @@ function searchProducts() {
             product.getAttribute("data-name") || ""
         ).toLowerCase();
 
-        if (name.includes(input)) {
+        let category = product.getAttribute("data-category");
 
-            product.style.display = "block";
-            found = true;
+        let matchesSearch = name.includes(input);
+
+        let matchesCategory =
+            activeCategory === "all" ||
+            category === activeCategory;
+
+        if (matchesSearch && matchesCategory) {
+
+            product.style.display = "";
+
+            found++;
 
         } else {
 
@@ -2857,104 +2918,78 @@ function searchProducts() {
     });
 
     document.getElementById("noProducts").style.display =
-        found ? "none" : "block";
+        found === 0 ? "block" : "none";
 }
 
-function filterCategory(category){
-let products = document.querySelectorAll(".product");
-
-products.forEach(p=>{
-if(category === "all"){
-p.style.display = "block";
-}
-else if(p.getAttribute("data-category") === category){
-p.style.display = "block";
-}
-else{
-p.style.display = "none";
-}
-});
+function searchProducts() {
+    applyProductFilters();
 }
 
-function updateWhatsAppLink(){
+function filterCategory(category) {
 
-if(cart.length === 0){
+    activeCategory = category;
 
-showToast("🛒 Cart is empty");
-
-return;
+    applyProductFilters();
 
 }
 
-let loggedUser =
-localStorage.getItem("loggedInUser") ||
-sessionStorage.getItem("loggedInUser");
+function updateWhatsAppLink() {
 
-if(!loggedUser){
+    if (cart.length === 0) {
+        showToast("🛒 Cart is empty");
+        return;
+    }
 
-alert("Please login before ordering");
+    let loggedUser =
+        localStorage.getItem("loggedInUser") ||
+        sessionStorage.getItem("loggedInUser");
 
-openLogin();
+    if (!loggedUser) {
 
-return;
+        alert("Please login before ordering");
+        openLogin();
+        return;
 
-}
+    }
 
-let orderID = generateOrderID();
+    let orderID = generateOrderID();
+    let orderDate = getOrderDate();
 
-let orderDate = getOrderDate();
+    let total = 0;
 
-let message =
-"I'd like to order these items from Lalitha Traders%0A%0A";
+    let message = [
+        "I'd like to order these items from Lalitha Traders",
+        "",
+        "Order ID: " + orderID,
+        "Date: " + orderDate,
+        "Customer Name: " + loggedUser,
+        ""
+    ];
 
-message +=
-"Order ID: " + orderID +
-"%0A";
+    cart.forEach((item, index) => {
 
-message +=
-"Date: " + orderDate +
-"%0A%0A";
+        let itemTotal = item.price * item.qty;
 
-message +=
-"Customer Name: " +
-loggedUser +
-"%0A%0A";
+        total += itemTotal;
 
-let total = 0;
+        message.push(
+            (index + 1) + ". " + item.name,
+            "Qty: " + item.qty,
+            "Price: ₹" + itemTotal,
+            ""
+        );
 
-cart.forEach((item,index)=>{
+    });
 
-let itemTotal =
-item.price * item.qty;
+    message.push("Total Amount: ₹" + total);
 
-total += itemTotal;
+    let phone = "919952449826";
 
-message +=
-(index+1) + ". " +
-item.name +
-"%0AQty: " +
-item.qty +
-"%0APrice: ₹" +
-itemTotal +
-"%0A%0A";
+    let url =
+        "https://wa.me/" + phone +
+        "?text=" + encodeURIComponent(message.join("\n"));
 
-});
-
-message +=
-"Total Amount: ₹" +
-total;
-
-let phone =
-"919952449826";
-
-let url =
-"https://wa.me/" +
-phone +
-"?text=" +
-message;
-
-alert("📱 Redirecting to WhatsApp...");
-window.open(url, "_blank");
+    window.open(url, "_blank");
 
 }
 
@@ -3011,10 +3046,17 @@ document.getElementById("loginStatus").innerText="";
 
 },2000);
 
+localStorage.removeItem("loggedInUser");
+sessionStorage.removeItem("loggedInUser");
+
 if (document.getElementById("rememberMe").checked) {
+
     localStorage.setItem("loggedInUser", user);
+
 } else {
+
     sessionStorage.setItem("loggedInUser", user);
+
 }
 
 document.getElementById("loginBtn").innerHTML =
@@ -3048,8 +3090,7 @@ if(!confirm("Are you sure you want to logout?")){
 localStorage.removeItem("loggedInUser");
 sessionStorage.removeItem("loggedInUser");
 
-document.querySelector(".login-btn").innerText =
-"Login";
+document.getElementById("loginBtn").innerText = "Login";
 
 document.querySelector(".logout-btn").style.display =
 "none";
@@ -3150,26 +3191,24 @@ showToast("🛒 Cart is empty");
 
 }
 
-function changeQty(index, value){
+function changeQty(index, value) {
 
-if(value < 1){
-removeItem(index);
-return;
-}
+    let quantity = Number(value);
 
-cart[index].qty = parseInt(value);
+    if (!Number.isInteger(quantity) || quantity < 1) {
 
-if(cart[index].qty <= 0){
+        removeItem(index);
+        return;
 
-removeItem(index);
+    }
 
-return;
+    if (!cart[index]) return;
 
-}
+    cart[index].qty = quantity;
 
-saveCart();
+    saveCart();
 
-updateCartDisplay();
+    updateCartDisplay();
 
 }
 
@@ -3182,33 +3221,29 @@ JSON.stringify(cart)
 
 }
 
-function updateCartDisplay(){
+function updateCartDisplay() {
 
-let totalItems = 0;
+    let totalItems = 0;
+    let totalPrice = 0;
 
-let totalPrice = 0;
+    cart.forEach(item => {
 
-cart.forEach(item=>{
+        totalItems += item.qty;
 
-totalItems += item.qty;
+        totalPrice += item.qty * item.price;
 
-totalPrice += item.qty * item.price;
+    });
 
-});
+    document.getElementById("cartCount").textContent =
+        totalItems;
 
-document.getElementById(
-"cartCount"
-).textContent = totalItems;
+    document.getElementById("items").textContent =
+        totalItems;
 
-document.getElementById(
-"items"
-).textContent = totalItems;
+    document.getElementById("orders").textContent =
+        "₹" + totalPrice.toFixed(2);
 
-document.getElementById(
-"orders"
-).textContent = "₹" + totalPrice;
-
-renderCartItems();
+    renderCartItems();
 
 }
 
@@ -3292,6 +3327,62 @@ margin-top:6px;
 .item{
 padding:14px;
 }
+
+}
+
+@media(max-width:600px){
+
+    .header {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    .search-bar {
+        flex-basis: 100%;
+        order: 5;
+    }
+
+    .header button {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .products {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .product {
+        min-width: 0;
+        padding: 8px;
+    }
+
+    .product img {
+        height: 120px;
+        object-fit: contain;
+    }
+
+    .product h3 {
+        font-size: 14px;
+    }
+
+    .product select {
+        max-width: 100%;
+    }
+
+}
+
+@media(max-width:360px){
+
+    .products {
+        grid-template-columns: 1fr;
+    }
 
 }
 
@@ -3775,6 +3866,89 @@ Azhagiya asura azhagiya asura
 Athumeera aasayillayaa..
 Kanavil vandhu yendhan viralgal
 Kichu kichu..dara dara raa-->
+
+<!-- ~~~~~~~~~MUNBE VA~~~~~~~~~~~
+Munbae vaa en anbae vaa
+Oonae vaa uyirae vaa
+Munbae vaa en anbae vaa
+Poo poovaai poopom vaa..
+
+Naan naana keten ennai naanae
+Naan neeya nenjam sonnathae
+
+Munbae vaa en anbae vaa
+Oonae vaa uyirae vaa
+Munbae vaa en anbae vaa
+Poo poovaai poopom vaa..
+
+Rango rangoli kolangal nee pottai
+Kolam pottaval kaigal vaazhi
+Valaiyal satham
+Jal jal
+Rango rangoli kolangal nee pottai
+Kolam pottaval kaigal vaazhi
+Sunthara malligai
+Santhana malligai
+Sithira Punnagai vannam minna..
+
+: Poo vaithaai poo vaithaai
+Nee poovaikoor poo vaithaai
+Mana poovaithu poovaithu
+Poovaikkul thee vaithaai oohh ohh
+
+Nee nee nee mazhaiyil aada
+Naan naan nnan nanainthae vaada
+En naanathil un ratham
+Naadikkul un satham
+Uyire ohoooo
+
+Thozhil oru sila naalil
+Thaniyena aanal tharaiyinil meen.hmm..hmm
+
+Munbae vaa en anbae vaa
+Oonae vaa uyirae vaa
+Munbae vaa en anbae vaa
+Male : Poo poovaai poopom vaa..
+
+Munbae vaa en anbae vaa
+Poo poovaai poopom vaa..ahhh
+
+Nilavidam vaadagai vaangi
+Vizhi veetinil kudi vaikkalaama..?
+Naam vaazhum veetukul
+Veraarum vanthalae thaguma..?
+
+Then malai thekkukku neethaan..
+Unthan thozhgalil idam tharalaama..?
+Naan saayum thozhmel
+Veraarum sainthalae..thaguma ..?
+
+Neerum senbula cherum
+Kalanthathu polae kalanthavar naam..
+
+Munbae vaa en anbae vaa
+Oonae vaa uyirae vaa
+Munbae vaa en anbae vaa
+Poo poovaai poopom vaa..
+
+Naan naana keten ennai naanae
+Naan neeya nenjam sonnathae
+
+Munbae vaa en anbae vaa
+Oonae vaa uyirae vaa
+Munbae vaa en anbae vaa
+Poo poovaai poopom vaa..
+
+{Rango rangoli kolangal nee pottai
+Kolam pottaval kaigal vaazhi
+Valaiyal satham
+Jal jal
+Rango rangoli kolangal nee pottai
+Kolam pottaval kaigal vaazhi
+Sunthara malligai
+Santhana malligai
+Sithira Punnagai vannam minna..}-->
+
 
 <!--       _
        .__(.)< (MEOW)
