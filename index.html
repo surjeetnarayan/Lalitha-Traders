@@ -231,10 +231,27 @@ background:#fff;
 text-align:center;
 }
 
-.banner img{
-width:100%;
-max-height:350px;
-object-fit:contain;
+.banner {
+    background: #fff;
+    text-align: center;
+    overflow: hidden;
+}
+.banner img {
+    display: block;
+    width: 100%;
+    height: clamp(120px, 19vw, 220px);
+    object-fit: contain;
+    object-position: center;
+}
+.product img {
+    display: block;
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+    padding: 8px;
+    border-radius: 10px;
 }
 
 .dashboard{
@@ -463,13 +480,217 @@ text-align:center;
 
 }
 
+
+/* LALITHA TRADERS CUSTOMER-EXPERIENCE UPDATE */
+.shopping-note {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 14px;
+    margin: 14px 18px 6px;
+    padding: 12px 16px;
+    background: #fff;
+    border-left: 4px solid #d5a326;
+    border-radius: 10px;
+    color: #263238;
+}
+.shopping-note span {
+    color: #59636e;
+    font-size: 14px;
+}
+.product-count {
+    margin: 8px 18px 0;
+    color: #56616d;
+    font-size: 14px;
+}
+.sidebar div.active {
+    background: #2e7d32;
+    color: #fff;
+    font-weight: 700;
+}
+.sidebar div[data-empty="true"] {
+    display: none;
+}
+.products {
+    padding-bottom: 88px;
+}
+.whatsapp {
+    z-index: 900;
+    max-width: calc(100vw - 24px);
+    white-space: nowrap;
+}
+.store-info {
+    margin: 22px 15px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.08);
+}
+.store-info h2 {
+    margin-bottom: 8px;
+    color: #17212b;
+}
+.store-info-intro {
+    margin-bottom: 14px;
+    color: #5c6670;
+}
+.store-info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+.store-info-item {
+    padding: 13px;
+    border: 1px solid #e7e9ec;
+    border-radius: 10px;
+    background: #fafafa;
+}
+.store-info-item strong {
+    display: block;
+    margin-bottom: 5px;
+}
+.store-info-item span {
+    color: #59636e;
+    font-size: 14px;
+}
+@media (max-width: 800px) {
+    .store-info-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+    .banner img {
+        height: 125px;
+        object-fit: contain;
+    }
+    .product img {
+        height: 120px;
+        object-fit: contain;
+    }
+    .shopping-note { margin: 10px; }
+    .product-count { margin-left: 12px; }
+    .whatsapp {
+        right: 12px;
+        bottom: 12px;
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+    .store-info { margin: 14px 10px; padding: 15px; }
+    .store-info-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 360px) {
+    .store-info-grid { grid-template-columns: 1fr; }
+}
+
+
+
+/* ===== LALITHA TRADERS: REBORN VISUAL SYSTEM ===== */
+:root{--ink:#202a24;--muted:#68756d;--cream:#f7f4eb;--paper:#fffdf8;--green:#174c3a;--green2:#23684e;--gold:#d8ad54;--line:#e9e2d3;--shadow:0 12px 34px rgba(36,48,38,.09)}
+html{scroll-behavior:smooth} body{background:var(--cream);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.45}
+.header{position:sticky;top:0;z-index:10000;background:rgba(20,62,47,.97);backdrop-filter:blur(14px);padding:12px clamp(12px,3vw,34px);gap:12px;box-shadow:0 5px 22px rgba(10,35,24,.18);border-bottom:1px solid rgba(216,173,84,.45)}
+.logo img{height:48px;width:auto;object-fit:contain}.search-bar input{background:#fffdf8;border:1px solid rgba(216,173,84,.5);border-radius:999px;padding:13px 18px;outline:none;box-shadow:inset 0 1px 2px #0000000b}.search-bar input:focus{border-color:var(--gold);box-shadow:0 0 0 3px #d8ad5433}
+button{transition:transform .18s ease,box-shadow .18s ease,background .18s ease}button:hover{transform:translateY(-1px);box-shadow:0 5px 14px #00000018}.cart-btn,.login-btn{background:var(--gold);color:#203126;border-radius:999px;padding:11px 17px}.logout-btn{background:#f3e8d0;color:#274232;border-radius:999px;padding:11px 15px}
+.banner{background:linear-gradient(120deg,#143f30,#245d43);padding:10px 16px;border-bottom:3px solid var(--gold)}.banner img{height:clamp(118px,17vw,205px);max-width:1180px;margin:auto;object-fit:contain}
+.shopping-note{margin:20px clamp(12px,3vw,34px) 8px;background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:16px;padding:16px 20px;box-shadow:var(--shadow)}.shopping-note strong{color:var(--green);font-size:17px}.shopping-note span,.product-count{color:var(--muted)}.product-count{margin:8px clamp(12px,3vw,34px) 0}
+.container{padding:18px clamp(12px,3vw,34px);gap:22px}.sidebar{width:240px;flex-shrink:0;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow);position:sticky;top:92px}.category-title{background:var(--green);color:#fff;border:0;border-radius:12px;font-size:18px;padding:13px;margin-bottom:12px;box-shadow:none}.sidebar div{padding:11px 13px;margin:5px 0;border-radius:11px;color:#3d4c42;cursor:pointer;transition:.18s}.sidebar div:hover,.sidebar div.active{background:#e8f0e8;color:var(--green);transform:none;box-shadow:inset 3px 0 var(--gold);font-weight:700}
+.products{grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:18px;padding-bottom:96px}.product{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:13px;box-shadow:0 5px 18px rgba(35,50,38,.06);text-align:left;overflow:hidden}.product:hover{transform:translateY(-4px);box-shadow:0 14px 28px rgba(35,50,38,.12);border-color:#d8c18e}.product img{height:166px;object-fit:contain;background:#f5f2e9;padding:10px;border-radius:12px}.product h3{text-align:left;color:var(--green);font-size:17px;margin:12px 2px 6px}.product select{max-width:100%;padding:9px;border:1px solid var(--line);border-radius:9px;background:white}.price{color:var(--green2);font-size:18px}.qty-box{justify-content:flex-start;margin:12px 0 2px}.qty-box button,.qty-btn{background:var(--green2);color:#fff;border-radius:9px}.product>button{background:var(--gold);color:#24372b;width:100%;margin-top:10px}
+.no-products{background:var(--paper);color:var(--muted);border:1px dashed #d4c7a9}.store-info{background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:18px}.store-info h2{color:var(--green)}.store-info-item{background:#faf8f1;border-color:var(--line);border-radius:12px}.footer,footer{background:#143e2f;color:#f8f3e6;border-top:3px solid var(--gold)}
+.whatsapp{z-index:900;background:#168b54;border:2px solid white;outline:0;box-shadow:0 8px 24px #168b5444}.whatsapp:hover{background:#117344;transform:translateY(-3px)}
+/* Cart drawer: always above the sticky header, with a large close target. */
+.cart-panel{z-index:20000;width:min(440px,100vw);background:var(--paper);box-shadow:-16px 0 48px #10251b33;border-left:1px solid var(--line);transition:right .28s cubic-bezier(.2,.8,.2,1)}.cart-header{background:var(--green);padding:18px 20px;border-bottom:2px solid var(--gold)}.cart-header h2{font-size:20px}.close-cart{background:#fff;color:var(--green);font-size:25px;line-height:1;padding:7px 13px;border-radius:50%;min-width:42px;min-height:42px}.close-cart:hover{background:#f4e7c9}.cart-item{background:#fff;border:1px solid var(--line);border-radius:13px;box-shadow:none}.cart-total{background:#f6f2e7;border-top:1px solid var(--line);color:var(--green)}.clear-btn{background:#8b3e35;color:white}
+/* Clean, centered sign-in dialog. */
+.login-box{z-index:21000;width:min(420px,calc(100vw - 28px));padding:25px;background:var(--paper);border:1px solid var(--line);border-radius:22px;box-shadow:0 24px 80px #10251b55;text-align:left}.login-topline{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.login-mark{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:var(--green);color:var(--gold);font-weight:900;letter-spacing:1px}.modal-close{background:#eee9dc;color:var(--ink);font-size:23px;width:38px;height:38px;padding:0;border-radius:50%}.login-box h2{color:var(--green);font-size:23px}.login-subtitle,.login-footnote{color:var(--muted);font-size:14px;margin:7px 0 18px}.login-box .input-title{margin:0 0 7px;font-size:14px;color:#455348}.login-box input[type=text]{width:100%;padding:13px 14px;border:1px solid #d9d2c3;border-radius:11px;font-size:16px;margin:0 0 14px;background:white}.login-box input:focus{outline:3px solid #d8ad5433;border-color:var(--gold)}.primary-action{background:var(--green);color:white;border-radius:11px;padding:13px 18px}.login-submit{width:100%;font-size:16px}.login-status{min-height:20px;margin-top:10px;color:var(--green);font-size:14px}.login-footnote{margin:10px 0 0;font-size:12px}
+@media(max-width:800px){.container{flex-direction:column}.sidebar{position:static;width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}.category-title{grid-column:1/-1}.products{width:100%;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px}.product{padding:10px}.product img{height:135px}.header{flex-wrap:wrap}.logo img{height:40px}.search-bar{order:3;flex-basis:100%}.header button{padding:9px 12px;font-size:13px}}
+@media(max-width:390px){.products{grid-template-columns:repeat(2,minmax(0,1fr))}.product h3{font-size:15px}.product img{height:112px}.sidebar{grid-template-columns:1fr 1fr}}
+
 </style>
+
+<style id="lt-floating-button-overlap-fix">
+/* Keep the WhatsApp order CTA in normal page flow, below the product grid. */
+.whatsapp {
+    position: relative !important;
+    inset: auto !important;
+    display: flex !important;
+    width: fit-content;
+    max-width: calc(100% - 24px);
+    margin: 8px clamp(12px, 3vw, 34px) 22px auto;
+    z-index: 1 !important;
+    white-space: normal;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width: 600px) {
+    .whatsapp {
+        margin: 8px 12px 18px auto;
+        font-size: 14px;
+        padding: 11px 15px;
+    }
+}
+</style>
+
+<style>
+/* FINAL POLISH: consistent product framing, responsive categories, and safe quantity controls */
+.product img {
+  display:block; width:100%; height:166px; object-fit:contain !important;
+  object-position:center; background:#f5f2e9; padding:14px;
+  border-radius:12px;
+}
+.sidebar { position:sticky; top:92px; align-self:flex-start; }
+.qty-box button:disabled { opacity:.38; cursor:not-allowed; filter:grayscale(.35); box-shadow:none; }
+.qty-box button:disabled:hover { transform:none; }
+@media (max-width:800px) {
+  .container { flex-direction:column; }
+  .sidebar { position:static; top:auto; width:100%; display:flex; flex-wrap:nowrap;
+    align-items:center; gap:7px; overflow-x:auto; overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch; padding:10px; scrollbar-width:thin; }
+  .sidebar .category-title { flex:0 0 auto; margin:0 5px 0 0; white-space:nowrap; font-size:15px; padding:10px 12px; }
+  .sidebar div { flex:0 0 auto; white-space:nowrap; margin:0; padding:10px 13px; border:1px solid var(--line); border-radius:999px; }
+  .sidebar div:hover,.sidebar div.active { box-shadow:none; border-color:var(--gold); }
+  .products { width:100%; }
+}
+@media (max-width:600px) { .product img { height:130px; padding:12px; } }
+</style>
+
+<style id="lt-final-mobile-and-image-audit">
+/* Keep every product photo framed consistently, including tall and narrow packs. */
+.product img {
+  display:block; width:100%; height:166px; object-fit:contain !important;
+  object-position:center center; padding:14px; background:#f5f2e9;
+  border-radius:12px;
+}
+/* Compact two-row mobile header: controls stay on row one, search gets full width. */
+@media (max-width:600px) {
+  .header {
+    display:grid; grid-template-columns:auto max-content max-content max-content;
+    align-items:center; justify-content:space-between; gap:7px;
+    padding:10px 12px;
+  }
+  .logo { grid-column:1; grid-row:1; min-width:0; }
+  .logo img { width:auto; height:34px; max-width:42px; }
+  #loginBtn { grid-column:2; grid-row:1; min-width:0; max-width:105px;
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+    padding:8px 9px; font-size:11px; }
+  .header .logout-btn { grid-column:3; grid-row:1; padding:8px 9px;
+    font-size:11px; white-space:nowrap; }
+  .header .cart-btn { grid-column:4; grid-row:1; padding:8px 9px;
+    font-size:11px; white-space:nowrap; }
+  .header .search-bar { grid-column:1 / -1; grid-row:2;
+    order:initial; width:100%; min-width:0; }
+  .header .search-bar input { width:100%; min-width:0; padding:11px 14px;
+    font-size:15px; }
+  .product img { height:130px; padding:12px; }
+}
+@media (max-width:360px) {
+  .header { grid-template-columns:auto minmax(0,1fr) max-content max-content; gap:5px; padding-inline:9px; }
+  #loginBtn { max-width:92px; padding-inline:7px; }
+  .header .logout-btn, .header .cart-btn { padding-inline:7px; font-size:10px; }
+}
+</style>
+
 </head>
 <body>
 
 <div class="header">
 <div class="logo">
-<img src="logo.png" alt="LT Logo">
+<img src="logo.png" alt="LT Logo" onerror="this.style.display=\'none\';">
 </div>
 
 <div class="search-bar sticky">
@@ -482,7 +703,7 @@ text-align:center;
 id="loginBtn"
 class="login-btn"
 onclick="openLogin()">
-Login
+Sign in
 </button>
 <button class="logout-btn" onclick="logoutUser()">Logout</button>
 <button class="cart-btn" onclick="openCartPanel()">
@@ -492,18 +713,18 @@ Cart (<span id="cartCount">0</span>)
 
 
 <div class="banner">
-    <img src="banner.png" alt="Lalitha Traders Banner">
+    <img src="banner.png" alt="Lalitha Traders Banner" onerror="this.style.display=\'none\';">
 </div>
 
 <p id="noProducts" class="no-products">
     😔 No Products Found
 </p>
 
-<div class="dashboard">
-<h3>💰 Total Summary</h3>
-<p>💵 Total Amount: <span id="orders">0</span></p>
-<p>🛒 Total Items in Cart: <span id="items">0</span></p>
+<div class="shopping-note">
+    <strong>🛒 Ready to shop?</strong>
+    <span>Choose your products, select quantities and open your cart to review your order.</span>
 </div>
+<p id="productCount" class="product-count" aria-live="polite"></p>
 
 <div class="container">
 
@@ -526,7 +747,7 @@ Cart (<span id="cartCount">0</span>)
 <!-- RICE -->
  <div class="product" data-name="aruna rice" data-category="rice">
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_872BGPRqn6EWC6gbLxVCK9CH-lWw5XVXuA&s">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_872BGPRqn6EWC6gbLxVCK9CH-lWw5XVXuA&s" onerror="this.style.display=\'none\';">
 
 <h3>Aruna Rice</h3>
 
@@ -554,7 +775,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="blue krishna rice" data-category="rice"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/40264115_2-krishna-gold-boiled-rice-rich-in-nutrition.jpg"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40264115_2-krishna-gold-boiled-rice-rich-in-nutrition.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Blue Krishna Rice</h3>
 <select id="size-blue">
 
@@ -580,7 +801,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
  <div class="product" data-name="orange krishna rice" data-category="rice"> 
-<img src="https://5.imimg.com/data5/SELLER/Default/2025/1/477808733/TP/IX/JP/34819474/krishna-gold-vip-sortex-aarani-ponni-rice-26-kg.jpg">
+<img src="https://5.imimg.com/data5/SELLER/Default/2025/1/477808733/TP/IX/JP/34819474/krishna-gold-vip-sortex-aarani-ponni-rice-26-kg.jpg" onerror="this.style.display=\'none\';">
  <h3>Orange Krishna Rice</h3>
 
 <select id="size-orange">
@@ -607,7 +828,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="basmati rice" data-category="rice"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/40170134_1-unity-biryani-basmati-rice.jpg"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40170134_1-unity-biryani-basmati-rice.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Basmati Rice</h3>
 <select id="size-biriyani">
 
@@ -633,7 +854,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="idly rice" data-category="rice"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/40240867_1-udhaiyam-idly-rice-for-soft-fluffy-batter.jpg"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40240867_1-udhaiyam-idly-rice-for-soft-fluffy-batter.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Idly Rice</h3>
 <select id="size-idly">
 
@@ -659,7 +880,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="boiled rice" data-category="rice"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/40256925_1-apple-apple-raw-rice.jpg"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40256925_1-apple-apple-raw-rice.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Boiled Rice</h3>
 <select id="size-pachai">
 
@@ -685,7 +906,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="broken rice" data-category="rice"> 
-<img src="https://5.imimg.com/data5/SELLER/Default/2024/1/378917123/EQ/FU/MW/180204009/whatsapp-image-2024-01-19-at-4-34-32-pm.jpg"> 
+<img src="https://5.imimg.com/data5/SELLER/Default/2024/1/378917123/EQ/FU/MW/180204009/whatsapp-image-2024-01-19-at-4-34-32-pm.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Broken Rice</h3>
 <select id="size-noi">
 
@@ -713,7 +934,7 @@ Cart (<span id="cartCount">0</span>)
 
  <!-- MASALA (auto pattern for both sizes) --> 
 <div class="product" data-name="turmeric 20g" data-category="masala">
- <img src="https://www.bestomart.com/cdn/shop/files/1000131593_large.jpg?v=1716800219">
+ <img src="https://www.bestomart.com/cdn/shop/files/1000131593_large.jpg?v=1716800219" onerror="this.style.display=\'none\';">
  <h3>Turmeric 20g</h3>
  <div class="price">₹10</div> 
 <div class="qty-box">
@@ -735,7 +956,7 @@ Cart (<span id="cartCount">0</span>)
  </div> 
 
 <div class="product" data-name="turmeric 50g" data-category="masala">
- <img src="https://www.bestomart.com/cdn/shop/files/1000131593_large.jpg?v=1716800219">
+ <img src="https://www.bestomart.com/cdn/shop/files/1000131593_large.jpg?v=1716800219" onerror="this.style.display=\'none\';">
  <h3>Turmeric 50g</h3>
  <div class="price">₹20</div>
  <div class="qty-box">
@@ -757,7 +978,7 @@ Cart (<span id="cartCount">0</span>)
  </div> 
 
 <div class="product" data-name="chilli 20g" data-category="masala">
- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPIcYT-MzMX6YA7iKoUItIyaEWn20ydaY5iw&s">
+ <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPIcYT-MzMX6YA7iKoUItIyaEWn20ydaY5iw&s" onerror="this.style.display=\'none\';">
  <h3>Chilli Powder 20g</h3> 
  <div class="price">₹10</div>
  <div class="qty-box">
@@ -779,7 +1000,7 @@ Cart (<span id="cartCount">0</span>)
  </div>
 
 <div class="product" data-name="chilli 50g" data-category="masala"> 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPIcYT-MzMX6YA7iKoUItIyaEWn20ydaY5iw&s">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPIcYT-MzMX6YA7iKoUItIyaEWn20ydaY5iw&s" onerror="this.style.display=\'none\';">
  <h3>Chilli Powder 50g</h3> <div class="price">₹20</div> 
 <div class="qty-box">
 
@@ -800,7 +1021,7 @@ Cart (<span id="cartCount">0</span>)
 </div> 
 
 <div class="product" data-name="sambar 20g" data-category="masala">
- <img src="https://pallapattionline.com/wp-content/uploads/2025/01/1000435900.png">
+ <img src="https://pallapattionline.com/wp-content/uploads/2025/01/1000435900.png" onerror="this.style.display=\'none\';">
  <h3>Sambar Powder 20g</h3> 
 <div class="price">₹10</div>
 <div class="qty-box">
@@ -822,12 +1043,12 @@ Cart (<span id="cartCount">0</span>)
  </div> 
 
 <div class="product" data-name="sambar 50g" data-category="masala"> 
-<img src="https://pallapattionline.com/wp-content/uploads/2025/01/1000435900.png">
+<img src="https://pallapattionline.com/wp-content/uploads/2025/01/1000435900.png" onerror="this.style.display=\'none\';">
  <h3>Sambar Powder 50g</h3> 
-<div class="price">₹35</div> 
+<div class="price">₹25</div> 
 <div class="qty-box">
 
-<button onclick="changeProductQty('Sambar Powder 50g',35,-1)">
+<button onclick="changeProductQty('Sambar Powder 50g',25,-1)">
 -
 </button>
 
@@ -835,7 +1056,7 @@ Cart (<span id="cartCount">0</span>)
 0
 </span>
 
-<button onclick="changeProductQty('Sambar Powder 50g',35,1)">
+<button onclick="changeProductQty('Sambar Powder 50g',25,1)">
 +
 </button>
 
@@ -844,7 +1065,7 @@ Cart (<span id="cartCount">0</span>)
  </div>
 
 <div class="product" data-name="65 masala 20g" data-category="masala">
- <img src="https://m.media-amazon.com/images/I/61GekvqqtIL.jpg">
+ <img src="https://m.media-amazon.com/images/I/61GekvqqtIL.jpg" onerror="this.style.display=\'none\';">
  <h3>65 Masala 20g</h3>
  <div class="price">₹15</div> 
 <div class="qty-box">
@@ -866,7 +1087,7 @@ Cart (<span id="cartCount">0</span>)
  </div> 
 
 <div class="product" data-name="super garam 20g" data-category="masala">
- <img src="https://m.media-amazon.com/images/I/61gwSEQbqiL._AC_UF350,350_QL80_.jpg">
+ <img src="https://m.media-amazon.com/images/I/61gwSEQbqiL._AC_UF350,350_QL80_.jpg" onerror="this.style.display=\'none\';">
  <h3>Super Garam 20g</h3>
  <div class="price">₹10</div> 
 <div class="qty-box">
@@ -888,7 +1109,7 @@ Cart (<span id="cartCount">0</span>)
  </div>  
 
 <div class="product" data-name="biriyani masala 20g" data-category="masala">
- <img src="https://pallapattionline.com/wp-content/uploads/2025/01/1000434488-300x300.png">
+ <img src="https://pallapattionline.com/wp-content/uploads/2025/01/1000434488-300x300.png" onerror="this.style.display=\'none\';">
  <h3>Biriyani Masala 20g</h3>
  <div class="price">₹15</div> 
 <div class="qty-box">
@@ -911,7 +1132,7 @@ Cart (<span id="cartCount">0</span>)
 
 <!--DAL-->
 <div class="product" data-name="urad dal" data-category="dal"> 
-<img src="https://village-groceries.com/wp-content/uploads/2025/03/UDHAIYAM-URID-WHOLE-GOTA-2KG.png"> 
+<img src="https://village-groceries.com/wp-content/uploads/2025/03/UDHAIYAM-URID-WHOLE-GOTA-2KG.png" onerror="this.style.display=\'none\';"> 
 <h3>Urad Dal</h3>
 <select id="size-urad">
 
@@ -936,7 +1157,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="toor dal" data-category="dal"> 
-<img src="https://i0.wp.com/village-groceries.com/wp-content/uploads/2025/03/UDHAIYAM-TOOR-DALL-2KG.png?fit=794%2C698&ssl=1"> 
+<img src="https://i0.wp.com/village-groceries.com/wp-content/uploads/2025/03/UDHAIYAM-TOOR-DALL-2KG.png?fit=794%2C698&ssl=1" onerror="this.style.display=\'none\';"> 
 <h3>Toor Dal</h3>
 <select id="size-toor">
 
@@ -961,7 +1182,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="masoor dal" data-category="dal"> 
-<img src="https://m.media-amazon.com/images/I/61SgI9W-TVL._AC_UF894,1000_QL80_.jpg"> 
+<img src="https://m.media-amazon.com/images/I/61SgI9W-TVL._AC_UF894,1000_QL80_.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Masoor Dal</h3>
 <select id="size-masoor">
 
@@ -986,7 +1207,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="moong dal" data-category="dal"> 
-<img src="https://www.bestomart.com/cdn/shop/products/1000123856-3_1024x1024.jpg?v=1686641813"> 
+<img src="https://www.bestomart.com/cdn/shop/products/1000123856-3_1024x1024.jpg?v=1686641813" onerror="this.style.display=\'none\';"> 
 <h3>Moong Dal</h3>
 <select id="size-moong">
 
@@ -1011,7 +1232,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="gram dal" data-category="dal"> 
-<img src="https://www.bestomart.com/cdn/shop/products/1000123859-3_1024x1024.jpg?v=1686641825"> 
+<img src="https://www.bestomart.com/cdn/shop/products/1000123859-3_1024x1024.jpg?v=1686641825" onerror="this.style.display=\'none\';"> 
 <h3>Gram Dal</h3>
 <select id="size-gram">
 
@@ -1036,7 +1257,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="roasted gram dal" data-category="dal"> 
-<img src="https://annachy-prod-assets.annachy.com/pims/products-v1/032982100_1.webp?v=1768903005312"> 
+<img src="https://annachy-prod-assets.annachy.com/pims/products-v1/032982100_1.webp?v=1768903005312" onerror="this.style.display=\'none\';"> 
 <h3>Roasted Gram Dal</h3>
 <select id="size-roasted">
 
@@ -1061,7 +1282,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="white chickpeas" data-category="dal"> 
-<img src="https://m.media-amazon.com/images/I/71WZBo+wSVL._AC_UF894,1000_QL80_.jpg"> 
+<img src="https://m.media-amazon.com/images/I/71WZBo+wSVL._AC_UF894,1000_QL80_.jpg" onerror="this.style.display=\'none\';"> 
 <h3>White Chickpeas</h3>
 <select id="size-white">
 
@@ -1086,7 +1307,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="brown chickpeas" data-category="dal"> 
-<img src="https://www.dial4trade.com/uploaded_files/product_images/indian-black-chickpeas-packaging-size-25-50-packaging-type-packet-u-843160318727584304.webp"> 
+<img src="https://www.dial4trade.com/uploaded_files/product_images/indian-black-chickpeas-packaging-size-25-50-packaging-type-packet-u-843160318727584304.webp" onerror="this.style.display=\'none\';"> 
 <h3>Brown Chickpeas</h3>
 <select id="size-brown">
 
@@ -1113,7 +1334,7 @@ Cart (<span id="cartCount">0</span>)
 <!--FLOUR-->
 
 <div class="product" data-name="aashirvaad atta" data-category="flour"> 
-<img src="https://m.media-amazon.com/images/I/9104JpXbv6L.jpg"> 
+<img src="https://m.media-amazon.com/images/I/9104JpXbv6L.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Aashirvaad Atta</h3>
 <select id="size-aashirvaad">
 
@@ -1138,7 +1359,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="365 days atta" data-category="flour">
- <img src="https://appvyapar-assets.blr1.digitaloceanspaces.com/uploads/nre/2025-10/bigimages/aa8d37303af1126a294e57e36945e6af.jpeg">
+ <img src="https://appvyapar-assets.blr1.digitaloceanspaces.com/uploads/nre/2025-10/bigimages/aa8d37303af1126a294e57e36945e6af.jpeg" onerror="this.style.display=\'none\';">
  <h3>365 Days Atta 5Kg</h3>
  <div class="price">₹230</div> 
 <div class="qty-box">
@@ -1160,7 +1381,7 @@ Cart (<span id="cartCount">0</span>)
  </div>
 
 <div class="product" data-name="maida" data-category="flour"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/40194163_6-fortune-maida.jpg"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40194163_6-fortune-maida.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Maida</h3>
 <select id="size-maida">
 
@@ -1185,7 +1406,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="ragi flour" data-category="flour"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/40001257_5-manna-ragi-flour.jpg"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40001257_5-manna-ragi-flour.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Ragi Flour</h3>
 <select id="size-ragi">
 
@@ -1210,7 +1431,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="gram flour" data-category="flour"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/40275444_1-ponni-gram-flour-besan-premium-quality-protein-rich.jpg"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40275444_1-ponni-gram-flour-besan-premium-quality-protein-rich.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Gram Flour</h3>
 <select id="size-gramflour">
 
@@ -1235,7 +1456,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="bajji-bonda flour" data-category="flour"> 
-<img src="https://instamart-media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/NI_CATALOG/IMAGES/ciw/2025/12/16/e0c91cd1-f571-4ec6-a7ce-1f299f4cbc24_TBWNXYIBFB_MN_15122025.png"> 
+<img src="https://instamart-media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/NI_CATALOG/IMAGES/ciw/2025/12/16/e0c91cd1-f571-4ec6-a7ce-1f299f4cbc24_TBWNXYIBFB_MN_15122025.png" onerror="this.style.display=\'none\';"> 
 <h3>Bajji-Bonda Flour</h3>
 <select id="size-bajji">
 
@@ -1262,7 +1483,7 @@ Cart (<span id="cartCount">0</span>)
 <!--OILS  & GHEE-->
 
 <div class="product" data-name="sunflower oil" data-category="oil"> 
-<img src="https://m.media-amazon.com/images/I/81FbVYZJYyL._SY741_.jpg"> 
+<img src="https://m.media-amazon.com/images/I/81FbVYZJYyL._SY741_.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Sunflower Oil</h3>
 <select id="size-sun">
 
@@ -1286,7 +1507,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="mustard oil" data-category="oil"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/40293853_2-nutrela-kachi-ghani-mustard-oil.jpg"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40293853_2-nutrela-kachi-ghani-mustard-oil.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Mustard Oil</h3>
 <select id="size-mus">
 
@@ -1310,7 +1531,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="coconut oil" data-category="oil"> 
-<img src="https://m.media-amazon.com/images/I/61fapIFwFmL._AC_UF1000,1000_QL80_.jpg"> 
+<img src="https://m.media-amazon.com/images/I/61fapIFwFmL._AC_UF1000,1000_QL80_.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Coconut Oil</h3>
 <select id="size-coco">
 
@@ -1335,7 +1556,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="sesame oil" data-category="oil"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/100003486_1-idhayam-oil-sesame.jpg"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/100003486_1-idhayam-oil-sesame.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Sesame Oil</h3>
 <select id="size-sea">
 
@@ -1359,7 +1580,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="castor oil" data-category="oil"> 
-<img src="https://www.bbassets.com/media/uploads/p/xl/40141959_2-mr-gold-nakshatra-pooja-oil.jpg"> 
+<img src="https://www.bbassets.com/media/uploads/p/xl/40141959_2-mr-gold-nakshatra-pooja-oil.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Castor Oil</h3>
 <select id="size-cas">
 
@@ -1383,7 +1604,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="navratna oil" data-category="oil"> 
-<img src="https://m.media-amazon.com/images/I/81gwWLKw5jL.jpg_BO30,255,255,255_UF750,750_SR1910,1000,0,C_QL100_.jpg"> 
+<img src="https://m.media-amazon.com/images/I/81gwWLKw5jL.jpg_BO30,255,255,255_UF750,750_SR1910,1000,0,C_QL100_.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Navratna Oil</h3>
 <select id="size-nav">
 
@@ -1407,7 +1628,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="vanaspati" data-category="oil"> 
-<img src="https://kaleesuwari.com/storage/products/15/gold_winner_Vanspati_500ml.png"> 
+<img src="https://kaleesuwari.com/storage/products/15/gold_winner_Vanspati_500ml.png" onerror="this.style.display=\'none\';"> 
 <h3>Vanaspati</h3>
 <select id="size-vana">
 
@@ -1431,7 +1652,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="ghee" data-category="oil"> 
-<img src="https://gropharm.in/wp-content/uploads/2025/08/download.jpg"> 
+<img src="https://gropharm.in/wp-content/uploads/2025/08/download.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Ghee</h3>
 <select id="size-ghee">
 
@@ -1460,7 +1681,7 @@ Cart (<span id="cartCount">0</span>)
 
 <!-- JUICES --> 
 <div class="product" data-name="mango juice" data-category="juice"> 
-<img src="https://www.bbassets.com/media/uploads/p/xl/40315637_1-dailee-mango-drink-with-fruit-pulp-enrich-alphonso.jpg">
+<img src="https://www.bbassets.com/media/uploads/p/xl/40315637_1-dailee-mango-drink-with-fruit-pulp-enrich-alphonso.jpg" onerror="this.style.display=\'none\';">
  <h3>Mango Juice</h3> 
 <div class="price">₹10</div> 
 <div class="qty-box">
@@ -1482,7 +1703,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
  <div class="product" data-name="orange juice" data-category="juice"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/40315653_1-dailee-orange-soft-drink.jpg">
+<img src="https://www.bbassets.com/media/uploads/p/l/40315653_1-dailee-orange-soft-drink.jpg" onerror="this.style.display=\'none\';">
  <h3>Orange Juice</h3> <div class="price">₹10</div>
  <div class="qty-box">
 
@@ -1503,7 +1724,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="lemon juice" data-category="juice"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/40315651_1-dailee-lemon-soft-drink.jpg">
+<img src="https://www.bbassets.com/media/uploads/p/l/40315651_1-dailee-lemon-soft-drink.jpg" onerror="this.style.display=\'none\';">
  <h3>Lemon Juice</h3> 
 <div class="price">₹10</div> 
 <div class="qty-box">
@@ -1525,7 +1746,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="paneer soda" data-category="juice"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/40315660_1-meriba-paneer-drink.jpg">
+<img src="https://www.bbassets.com/media/uploads/p/l/40315660_1-meriba-paneer-drink.jpg" onerror="this.style.display=\'none\';">
  <h3>Paneer Soda</h3> 
 <div class="price">₹10</div> 
 <div class="qty-box">
@@ -1547,7 +1768,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="bovonto" data-category="juice"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/40315656_1-jinthaaa-sweetened-soft-drink.jpg">
+<img src="https://www.bbassets.com/media/uploads/p/l/40315656_1-jinthaaa-sweetened-soft-drink.jpg" onerror="this.style.display=\'none\';">
  <h3>Bovonto</h3> 
 <div class="price">₹10</div> 
 <div class="qty-box">
@@ -1569,7 +1790,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="lemon salt soda" data-category="juice"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/40315661_1-dailee-lemon-salt-soda.jpg">
+<img src="https://www.bbassets.com/media/uploads/p/l/40315661_1-dailee-lemon-salt-soda.jpg" onerror="this.style.display=\'none\';">
  <h3>Lemon Salt Soda</h3> 
 <div class="price">₹10</div> 
 <div class="qty-box">
@@ -1591,7 +1812,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="sting" data-category="juice"> 
-<img src="https://5.imimg.com/data5/SELLER/Default/2021/5/GA/QN/UA/107425127/250ml-sting-energy-drink.jpg">
+<img src="https://5.imimg.com/data5/SELLER/Default/2021/5/GA/QN/UA/107425127/250ml-sting-energy-drink.jpg" onerror="this.style.display=\'none\';">
  <h3>Sting</h3> 
 <div class="price">₹10</div> 
 <div class="qty-box">
@@ -1613,7 +1834,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="thums up" data-category="juice"> 
-<img src="https://www.bbassets.com/media/uploads/p/xl/251014_12-thums-up-soft-drink.jpg"> 
+<img src="https://www.bbassets.com/media/uploads/p/xl/251014_12-thums-up-soft-drink.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Thums Up</h3>
 <select id="size-up">
 
@@ -1637,7 +1858,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="7 up" data-category="juice"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/40130830_10-7-up-soft-drink-lemon.jpg"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40130830_10-7-up-soft-drink-lemon.jpg" onerror="this.style.display=\'none\';"> 
 <h3>7 Up</h3>
 <select id="size-7">
 
@@ -1661,7 +1882,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="limca" data-category="juice"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/40313626_1-limca-soft-drink-lime-lemon-flavoured.jpg">
+<img src="https://www.bbassets.com/media/uploads/p/l/40313626_1-limca-soft-drink-lime-lemon-flavoured.jpg" onerror="this.style.display=\'none\';">
  <h3>Limca</h3> 
 <div class="price">₹20</div> 
 <div class="qty-box">
@@ -1683,7 +1904,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="coca-cola" data-category="juice"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/40032980_9-coca-cola-soft-drink-original-taste.jpg">
+<img src="https://www.bbassets.com/media/uploads/p/l/40032980_9-coca-cola-soft-drink-original-taste.jpg" onerror="this.style.display=\'none\';">
  <h3>Coca-Cola 740Ml</h3> 
 <div class="price">₹40</div> 
 <div class="qty-box">
@@ -1698,7 +1919,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="maaza" data-category="juice"> 
-<img src="https://www.coca-cola.com/content/dam/onexp/in/en/home-page-test-img/brands/maaza/maaza-bottles/maaza_packshot_1100x1100.jpg">
+<img src="https://www.coca-cola.com/content/dam/onexp/in/en/home-page-test-img/brands/maaza/maaza-bottles/maaza_packshot_1100x1100.jpg" onerror="this.style.display=\'none\';">
  <h3>Maaza 600Ml</h3> 
 <div class="price">₹35</div> 
 <div class="qty-box">
@@ -1720,7 +1941,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="fanta" data-category="juice"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/251019_8-fanta-soft-drink-orange-flavoured.jpg">
+<img src="https://www.bbassets.com/media/uploads/p/l/251019_8-fanta-soft-drink-orange-flavoured.jpg" onerror="this.style.display=\'none\';">
  <h3>Fanta 600Ml</h3> 
 <div class="price">₹40</div> 
 <div class="qty-box">
@@ -1744,7 +1965,7 @@ Cart (<span id="cartCount">0</span>)
 <!--DAIRY-->
 
 <div class="product" data-name="buttermilk" data-category="dairy"> 
-<img src="https://www.tirumalamilk.com/images/prodcuts/butter_milk/Spiced_Buttermilk_Pouch_175ml.webp">
+<img src="https://www.tirumalamilk.com/images/prodcuts/butter_milk/Spiced_Buttermilk_Pouch_175ml.webp" onerror="this.style.display=\'none\';">
  <h3>ButterMilk</h3> 
 <div class="price">₹10</div> 
 <div class="qty-box">
@@ -1766,7 +1987,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="curd" data-category="dairy"> 
-<img src="https://www.bbassets.com/media/uploads/p/xl/40017394_3-thirumala-curd.jpg"> 
+<img src="https://www.bbassets.com/media/uploads/p/xl/40017394_3-thirumala-curd.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Curd</h3>
 <select id="size-curd">
 
@@ -1790,7 +2011,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="milk" data-category="dairy"> 
-<img src="https://www.tirumalamilk.com/images/prodcuts/milks/Milk_0007_Full_cream_milk_500ml.webp"> 
+<img src="https://www.tirumalamilk.com/images/prodcuts/milks/Milk_0007_Full_cream_milk_500ml.webp" onerror="this.style.display=\'none\';"> 
 <h3>Milk</h3>
 <select id="size-milk">
 
@@ -1814,7 +2035,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="milk powder" data-category="dairy"> 
-<img src="https://m.media-amazon.com/images/I/61FPJUqhKSL._AC_UF894,1000_QL80_.jpg"> 
+<img src="https://m.media-amazon.com/images/I/61FPJUqhKSL._AC_UF894,1000_QL80_.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Milk Powder</h3>
 <select id="size-powder">
 
@@ -1840,7 +2061,7 @@ Cart (<span id="cartCount">0</span>)
 <!--BEVERAGES-->
 
 <div class="product" data-name="sunrise" data-category="beverages"> 
-<img src="https://m.media-amazon.com/images/I/71oYPjbdyUL._AC_UF894,1000_QL80_.jpg"> 
+<img src="https://m.media-amazon.com/images/I/71oYPjbdyUL._AC_UF894,1000_QL80_.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Sunrise Coffee</h3>
 <select id="size-sunrise">
 
@@ -1865,7 +2086,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="chakra gold" data-category="beverages"> 
-<img src="https://www.tatanutrikorner.com/cdn/shop/files/7160583-1_Tata_Tea_Chakra_Gold_ROS_3D_Packshots_500gm_FOP_d6a631b5-54d4-4bbb-acb5-d307dcd9d3a7.png?v=1748858301&width=1946"> 
+<img src="https://www.tatanutrikorner.com/cdn/shop/files/7160583-1_Tata_Tea_Chakra_Gold_ROS_3D_Packshots_500gm_FOP_d6a631b5-54d4-4bbb-acb5-d307dcd9d3a7.png?v=1748858301&width=1946" onerror="this.style.display=\'none\';"> 
 <h3>Chakra Gold Tea</h3>
 <select id="size-tea">
 
@@ -1889,7 +2110,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="horlicks" data-category="beverages"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/40359127_1-horlicks-classic-malt-nutrition-drink.jpg">
+<img src="https://www.bbassets.com/media/uploads/p/l/40359127_1-horlicks-classic-malt-nutrition-drink.jpg" onerror="this.style.display=\'none\';">
  <h3>Horlicks</h3> 
 <div class="price">₹5</div> 
 <div class="qty-box">
@@ -1911,7 +2132,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="boost" data-category="beverages"> 
-<img src="https://services.kpnfresh.com/media/v1/products/images/b3017d56-886c-4e2d-b5eb-c4ff1d5ec4bf/boost-3x-more-stamina-nutrition-drink-pouch.webp?c_type=C1">
+<img src="https://services.kpnfresh.com/media/v1/products/images/b3017d56-886c-4e2d-b5eb-c4ff1d5ec4bf/boost-3x-more-stamina-nutrition-drink-pouch.webp?c_type=C1" onerror="this.style.display=\'none\';">
  <h3>Boost</h3> 
 <div class="price">₹5</div> 
 <div class="qty-box">
@@ -1933,7 +2154,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="water" data-category="beverages"> 
-<img src="https://tiimg.tistatic.com/fp/1/006/315/nice-aqua-drinking-water-868.jpg"> 
+<img src="https://tiimg.tistatic.com/fp/1/006/315/nice-aqua-drinking-water-868.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Water Bottle</h3>
 <select id="size-water">
 
@@ -1957,7 +2178,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="water can" data-category="beverages"> 
-<img src="https://tiimg.tistatic.com/fp/1/007/703/pure-and-natural-healthy-good-surface-membrane-filter-hygienic-packaged-drinking-water-packed-can-254.jpg"> 
+<img src="https://tiimg.tistatic.com/fp/1/007/703/pure-and-natural-healthy-good-surface-membrane-filter-hygienic-packaged-drinking-water-packed-can-254.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Water Can</h3>
 <select id="size-can">
 
@@ -1983,7 +2204,7 @@ Cart (<span id="cartCount">0</span>)
  <!-- ICE CREAM --> 
 
 <div class="product" data-name="cup ice" data-category="ice"> 
-<img src="https://5.imimg.com/data5/SELLER/Default/2023/5/312276327/BI/NQ/AJ/24906100/runcup.png">
+<img src="https://5.imimg.com/data5/SELLER/Default/2023/5/312276327/BI/NQ/AJ/24906100/runcup.png" onerror="this.style.display=\'none\';">
  <h3>Cup Ice Cream</h3> <div class="price">₹10</div>
  <div class="qty-box">
 
@@ -2004,7 +2225,7 @@ Cart (<span id="cartCount">0</span>)
 </div> 
 
 <div class="product" data-name="mango bar" data-category="ice">
- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSK5A--XlfQqhDnrHrlONSLUkt34lkJxKMjA&s">
+ <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSK5A--XlfQqhDnrHrlONSLUkt34lkJxKMjA&s" onerror="this.style.display=\'none\';">
  <h3>Mango Bar</h3> <div class="price">₹15</div>
  <div class="qty-box">
 
@@ -2024,7 +2245,7 @@ Cart (<span id="cartCount">0</span>)
  </div>
 
  <div class="product" data-name="grape bar" data-category="ice"> 
-<img src="https://tiimg.tistatic.com/fp/1/007/883/delicious-high-in-fiber-vitamins-royal-hygienically-prepared-adulteration-free-grape-ice-bar-455.jpg"> 
+<img src="https://tiimg.tistatic.com/fp/1/007/883/delicious-high-in-fiber-vitamins-royal-hygienically-prepared-adulteration-free-grape-ice-bar-455.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Grape Bar</h3> <div class="price">₹15</div>
 <div class="qty-box">
 
@@ -2044,7 +2265,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
  <div class="product" data-name="orange bar" data-category="ice">
- <img src="https://cgs-cdn.sgp1.digitaloceanspaces.com/dairy-day/wp-content/uploads/2023/03/30045644/8906010911126-orange-candy-2-328x600.png">
+ <img src="https://cgs-cdn.sgp1.digitaloceanspaces.com/dairy-day/wp-content/uploads/2023/03/30045644/8906010911126-orange-candy-2-328x600.png" onerror="this.style.display=\'none\';">
  <h3>Orange Bar</h3> <div class="price">₹15</div>
   <div class="qty-box">
 
@@ -2064,7 +2285,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="choco bar" data-category="ice"> 
-<img src="https://www.coldlove.in/cdn/shop/files/ClassicChocoBar.webp?v=1709279181"> 
+<img src="https://www.coldlove.in/cdn/shop/files/ClassicChocoBar.webp?v=1709279181" onerror="this.style.display=\'none\';"> 
 <h3>Choco Bar</h3> <div class="price">₹25</div>
   <div class="qty-box">
 
@@ -2084,7 +2305,7 @@ Cart (<span id="cartCount">0</span>)
 </div> 
 
 <div class="product" data-name="vanilla cone" data-category="ice"> 
-<img src="https://www.havmor.com/sites/default/files/styles/502x375/public/gallery/Choco-Vanilla-Cone.jpg?itok=hHSCzpen">
+<img src="https://www.havmor.com/sites/default/files/styles/502x375/public/gallery/Choco-Vanilla-Cone.jpg?itok=hHSCzpen" onerror="this.style.display=\'none\';">
  <h3>Vanilla Cone</h3> <div class="price">₹35</div> 
  <div class="qty-box">
 
@@ -2104,7 +2325,7 @@ Cart (<span id="cartCount">0</span>)
 </div> 
 
 <div class="product" data-name="butterscotch cone" data-category="ice"> 
-<img src="https://cpimg.tistatic.com/5822311/b/4/butterscotch-cone-ice-cream.jpg"> 
+<img src="https://cpimg.tistatic.com/5822311/b/4/butterscotch-cone-ice-cream.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Butterscotch Cone</h3> <div class="price">₹40</div>
  <div class="qty-box">
 
@@ -2125,7 +2346,7 @@ Cart (<span id="cartCount">0</span>)
 </div> 
 
 <div class="product" data-name="badam kulfi" data-category="ice"> 
-<img src="https://www.milkmaid.in/sites/default/files/2024-05/KESAR-BADAM-KULFI-335x300.jpg"> 
+<img src="https://www.milkmaid.in/sites/default/files/2024-05/KESAR-BADAM-KULFI-335x300.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Badam Kulfi</h3> <div class="price">₹35</div> 
  <div class="qty-box">
 
@@ -2146,7 +2367,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="pistha kulfi" data-category="ice"> 
-<img src="https://5.imimg.com/data5/ANDROID/Default/2023/1/NK/OQ/QU/155709996/product-jpeg-500x500.jpg"> 
+<img src="https://5.imimg.com/data5/ANDROID/Default/2023/1/NK/OQ/QU/155709996/product-jpeg-500x500.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Pistha Kulfi</h3> <div class="price">₹35</div>
   <div class="qty-box">
 
@@ -2167,7 +2388,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="kesar pistha kulfi" data-category="ice"> 
-<img src="https://tiimg.tistatic.com/fp/1/007/834/-classic-creamy-rich-taste-sweet-delight-dessert-kulfi-ice-cream--839.jpg"> 
+<img src="https://tiimg.tistatic.com/fp/1/007/834/-classic-creamy-rich-taste-sweet-delight-dessert-kulfi-ice-cream--839.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Kesar Pistha Kulfi</h3> <div class="price">₹50</div>
 <div class="qty-box">
 
@@ -2190,7 +2411,7 @@ Cart (<span id="cartCount">0</span>)
 <!--DETERGENTS-->
 
 <div class="product" data-name="ariel" data-category="detergents"> 
-<img src="https://www.quickpantry.in/cdn/shop/products/ariel-perfect-washing-powder-sachet-quick-pantry-2.png?v=1710538093"> 
+<img src="https://www.quickpantry.in/cdn/shop/products/ariel-perfect-washing-powder-sachet-quick-pantry-2.png?v=1710538093" onerror="this.style.display=\'none\';"> 
 <h3>Ariel</h3>
 <select id="size-ariel"> 
 
@@ -2213,7 +2434,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="rin" data-category="detergents"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/40206548_3-rin-detergent-powder-anti-bac.jpg"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40206548_3-rin-detergent-powder-anti-bac.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Rin</h3>
 <select id="size-rin">
 
@@ -2237,7 +2458,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="surfexcel" data-category="detergents"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/266951_16-surf-excel-quick-wash-detergent-powder.jpg"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/266951_16-surf-excel-quick-wash-detergent-powder.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Surf Excel</h3>
 <select id="size-surfexcel">
 
@@ -2261,7 +2482,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="tide" data-category="detergents"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/40354915_2-tide-jasmine-rose-double-power-detergent-powder.jpg"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/40354915_2-tide-jasmine-rose-double-power-detergent-powder.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Tide</h3>
 <select id="size-tide">
 
@@ -2284,7 +2505,7 @@ Cart (<span id="cartCount">0</span>)
 </div> 
 
 <div class="product" data-name="vim" data-category="detergents"> 
-<img src="https://m.media-amazon.com/images/I/61szrCRWOEL.jpg"> 
+<img src="https://m.media-amazon.com/images/I/61szrCRWOEL.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Vim</h3>
 <select id="size-vim">
 
@@ -2307,7 +2528,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="cinthol" data-category="detergents"> 
-<img src="https://m.media-amazon.com/images/I/61TrKj66cOL.jpg"> 
+<img src="https://m.media-amazon.com/images/I/61TrKj66cOL.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Cinthol</h3>
 <select id="size-cinthol">
 
@@ -2330,7 +2551,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="lifebuoy" data-category="detergents"> 
-<img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=1080/da/cms-assets/cms/product/f8d17a4a-2a81-4b2e-8223-401644fccba6.png?bg_token=color.background.quaternary"> 
+<img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=1080/da/cms-assets/cms/product/f8d17a4a-2a81-4b2e-8223-401644fccba6.png?bg_token=color.background.quaternary" onerror="this.style.display=\'none\';"> 
 <h3>Lifebuoy</h3>
 <select id="size-life">
 
@@ -2353,7 +2574,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="hamam" data-category="detergents"> 
-<img src="https://www.bbassets.com/media/uploads/p/l/270910_9-hamam-bathing-soap-with-neem-tulsi-aloe-vera.jpg"> 
+<img src="https://www.bbassets.com/media/uploads/p/l/270910_9-hamam-bathing-soap-with-neem-tulsi-aloe-vera.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Hamam</h3>
 <select id="size-hamam">
 
@@ -2376,7 +2597,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
  <div class="product" data-name="medimix" data-category="detergents">
- <img src="https://m.media-amazon.com/images/I/414rYFV7btL._AC_UF1000,1000_QL80_.jpg">
+ <img src="https://m.media-amazon.com/images/I/414rYFV7btL._AC_UF1000,1000_QL80_.jpg" onerror="this.style.display=\'none\';">
  <h3>Medimix</h3> <div class="price">₹10</div>
   <div class="qty-box">
 
@@ -2396,7 +2617,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
  <div class="product" data-name="mysore sandal soap" data-category="detergents">
- <img src="https://www.bbassets.com/media/uploads/p/xl/100003862_1-mysore-sandal-bathing-soap.jpg">
+ <img src="https://www.bbassets.com/media/uploads/p/xl/100003862_1-mysore-sandal-bathing-soap.jpg" onerror="this.style.display=\'none\';">
  <h3>Mysore Sandal Soap</h3> <div class="price">₹38</div>
   <div class="qty-box">
 
@@ -2416,7 +2637,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="nature" data-category="detergents">
- <img src="https://www.bbassets.com/media/uploads/p/xl/40057551_4-nature-power-beauty-soap-papaya.jpg">
+ <img src="https://www.bbassets.com/media/uploads/p/xl/40057551_4-nature-power-beauty-soap-papaya.jpg" onerror="this.style.display=\'none\';">
  <h3>Nature Power Papaya Soap</h3> <div class="price">₹45</div>
   <div class="qty-box">
 
@@ -2436,7 +2657,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="lux" data-category="detergents">
- <img src="https://www.bbassets.com/media/uploads/p/l/306171_8-lux-beauty-soap-for-glowing-skin-rose-vitamin-e.jpg">
+ <img src="https://www.bbassets.com/media/uploads/p/l/306171_8-lux-beauty-soap-for-glowing-skin-rose-vitamin-e.jpg" onerror="this.style.display=\'none\';">
  <h3>Lux Soap</h3> <div class="price">₹35</div>
   <div class="qty-box">
 
@@ -2456,7 +2677,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="vivel" data-category="detergents">
- <img src="https://www.bbassets.com/media/uploads/p/l/40333279_1-vivel-lotus-oil-aloe-vera-soap.jpg">
+ <img src="https://www.bbassets.com/media/uploads/p/l/40333279_1-vivel-lotus-oil-aloe-vera-soap.jpg" onerror="this.style.display=\'none\';">
  <h3>Vivel Soap</h3> <div class="price">₹40</div>
   <div class="qty-box">
 
@@ -2476,7 +2697,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="dettol" data-category="detergents">
- <img src="https://www.bbassets.com/media/uploads/p/l/40325772_5-dettol-icy-cool-soap.jpg">
+ <img src="https://www.bbassets.com/media/uploads/p/l/40325772_5-dettol-icy-cool-soap.jpg" onerror="this.style.display=\'none\';">
  <h3>Dettol Icy Cool Soap</h3> <div class="price">₹40</div>
   <div class="qty-box">
 
@@ -2496,7 +2717,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="colgate" data-category="detergents">
- <img src="https://m.media-amazon.com/images/I/61Ym3SMl+5L._AC_UF350,350_QL80_.jpg">
+ <img src="https://m.media-amazon.com/images/I/61Ym3SMl+5L._AC_UF350,350_QL80_.jpg" onerror="this.style.display=\'none\';">
  <h3>Colgate ToothPaste</h3> <div class="price">₹10</div>
   <div class="qty-box">
 
@@ -2516,7 +2737,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="dabur" data-category="detergents"> 
-<img src="https://m.media-amazon.com/images/I/81QobQ9NgEL._AC_UF1000,1000_QL80_.jpg"> 
+<img src="https://m.media-amazon.com/images/I/81QobQ9NgEL._AC_UF1000,1000_QL80_.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Dabur Red Toothpaste</h3>
 <select id="size-red">
 
@@ -2539,7 +2760,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="home" data-category="detergents">
- <img src="https://5.imimg.com/data5/SELLER/Default/2023/10/349460678/FF/YO/OA/55624474/dp.jpeg">
+ <img src="https://5.imimg.com/data5/SELLER/Default/2023/10/349460678/FF/YO/OA/55624474/dp.jpeg" onerror="this.style.display=\'none\';">
  <h3>Home Guard Toilet Cleaner</h3> <div class="price">₹30</div>
   <div class="qty-box">
 
@@ -2559,12 +2780,12 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="Homeg" data-category="detergents"> 
-<img src="https://instamart-media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/NI_CATALOG/IMAGES/ciw/2025/12/18/d507e307-b262-4ffd-aa12-ddc3f1bf29bd_E99JCA5ZT0_MN_18122025.png"> 
+<img src="https://instamart-media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/NI_CATALOG/IMAGES/ciw/2025/12/18/d507e307-b262-4ffd-aa12-ddc3f1bf29bd_E99JCA5ZT0_MN_18122025.png" onerror="this.style.display=\'none\';"> 
 <h3>Home Guard Floor Cleaner</h3>
 <select id="size-floor">
 
 <option value=" 250ml|20">250ml - ₹20</option>
-<option value="500ml|80">500ml - ₹80</option>
+<option value="500ml|40">500ml - ₹40</option>
 </select>
 
 <br><br>
@@ -2582,7 +2803,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="kiru" data-category="detergents">
- <img src="https://2.imimg.com/data2/QS/JQ/MY-3288432/white-homogeneous-liquid-500x500.jpg">
+ <img src="https://2.imimg.com/data2/QS/JQ/MY-3288432/white-homogeneous-liquid-500x500.jpg" onerror="this.style.display=\'none\';">
  <h3>Kirubas White Phenyl</h3> <div class="price">₹35</div>
   <div class="qty-box">
 
@@ -2602,7 +2823,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="karthika" data-category="detergents"> 
-<img src="https://ppsnco.com/wp-content/uploads/2021/10/KARTHIKA-1-300x300-1.png"> 
+<img src="https://ppsnco.com/wp-content/uploads/2021/10/KARTHIKA-1-300x300-1.png" onerror="this.style.display=\'none\';"> 
 <h3>Karthika Herbal Powder</h3>
 <select id="size-kart">
 
@@ -2624,7 +2845,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="karthikas" data-category="detergents"> 
-<img src="https://m.media-amazon.com/images/I/41BNYLq846L._AC_UF1000,1000_QL80_.jpg"> 
+<img src="https://m.media-amazon.com/images/I/41BNYLq846L._AC_UF1000,1000_QL80_.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Karthika Shampoo</h3>
 <select id="size-karti">
 
@@ -2646,7 +2867,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="meera" data-category="detergents"> 
-<img src="https://cdn.dotpe.in/longtail/store-items/6732496/SSnaKS6t.jpeg"> 
+<img src="https://cdn.dotpe.in/longtail/store-items/6732496/SSnaKS6t.jpeg" onerror="this.style.display=\'none\';"> 
 <h3>Meera Shampoo</h3>
 <select id="size-meera">
 
@@ -2668,7 +2889,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="head" data-category="detergents"> 
-<img src="https://img.clevup.in/334623/SKU-0592_0-1744442432764.jpg?format=webp"> 
+<img src="https://img.clevup.in/334623/SKU-0592_0-1744442432764.jpg?format=webp" onerror="this.style.display=\'none\';"> 
 <h3>Head & Shoulders Shampoo</h3>
 <select id="size-head">
 
@@ -2690,7 +2911,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="clinic" data-category="detergents"> 
-<img src="https://img.clevup.in/410557/TetleyLemon-1736857396217.jpeg?format=webp"> 
+<img src="https://img.clevup.in/410557/TetleyLemon-1736857396217.jpeg?format=webp" onerror="this.style.display=\'none\';"> 
 <h3>Clinic Plus Shampoo</h3>
 <select id="size-clinic">
 
@@ -2712,7 +2933,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="dove" data-category="detergents"> 
-<img src="https://m.media-amazon.com/images/I/41bkp7vAI4L.jpg"> 
+<img src="https://m.media-amazon.com/images/I/41bkp7vAI4L.jpg" onerror="this.style.display=\'none\';"> 
 <h3>Dove Shampoo</h3>
 <select id="size-dove">
 
@@ -2734,7 +2955,7 @@ Cart (<span id="cartCount">0</span>)
 </div>
 
 <div class="product" data-name="comfort" data-category="detergents"> 
-<img src="https://storage.googleapis.com/shy-pub/262113/1664635516801_ComfortBlack4RsSaram.jpeg"> 
+<img src="https://storage.googleapis.com/shy-pub/262113/1664635516801_ComfortBlack4RsSaram.jpeg" onerror="this.style.display=\'none\';"> 
 <h3>Comfort Fabric Conditioner</h3>
 <select id="size-condi">
 
@@ -2768,53 +2989,15 @@ Cart (<span id="cartCount">0</span>)
     <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
 </a>
 
-<div id="loginBox" class="login-box">
-
-<h2>👤 Lalitha Traders Login</h2>
-
-<label class="input-title">
-    Username:
-</label>
-
-<input
-type="text"
-id="username"
-placeholder="Enter Username">
-
-<br><br>
-
-<label class="input-title">
-    Password:
-</label>
-
-<input
-type="password"
-id="password"
-placeholder="Enter Password">
-
-<br><br>
-
-<div class="remember-container">
-    <input type="checkbox" id="rememberMe">
-    <label for="rememberMe">Remember Me</label>
-</div>
-
-<br><br>
-
-<button onclick="registerUser()">
-Register
-</button>
-
-<button onclick="loginUser()">
-Login
-</button>
-
-<button onclick="closeLogin()">
-Close
-</button>
-
-<p id="loginStatus"></p>
-
+<div id="loginBox" class="login-box" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+  <div class="login-topline"><span class="login-mark">LT</span><button class="modal-close" type="button" onclick="closeLogin()" aria-label="Close login">×</button></div>
+  <h2 id="loginTitle">Welcome to Lalitha Traders</h2>
+  <p class="login-subtitle">Enter your name to continue shopping.</p>
+  <label class="input-title" for="username">Your name</label>
+  <input type="text" id="username" placeholder="Enter your name" autocomplete="name" maxlength="40">
+  <button class="primary-action login-submit" type="button" onclick="loginUser()">Continue</button>
+  <p class="login-status" id="loginStatus" aria-live="polite"></p>
+  <p class="login-footnote">No registration or password required. You can shop without signing in too.</p>
 </div>
 
 <script>
@@ -2841,6 +3024,11 @@ try {
         cart.forEach(item => {
             item.price = Number(item.price);
             item.qty = Number(item.qty);
+
+            // Keep previously saved cart entries aligned with the updated pack prices.
+            const displayName = formatCartItemName(item.name);
+            if (displayName === "Sambar Powder 50g") item.price = 25;
+            if (displayName === "Home Guard Floor Cleaner 500ml") item.price = 40;
         });
 
     }
@@ -2880,45 +3068,47 @@ updateCartDisplay();
 let activeCategory = "all";
 
 function applyProductFilters() {
-
-    let input = document
-        .getElementById("searchInput")
-        .value.toLowerCase().trim();
-
-    let products = document.querySelectorAll(".product");
-
+    const input = document.getElementById("searchInput").value.toLowerCase().trim();
+    const products = document.querySelectorAll("#productList .product");
     let found = 0;
 
     products.forEach(product => {
+        const title = product.querySelector("h3")?.textContent || "";
+        const dataName = product.getAttribute("data-name") || "";
+        const searchableText = (dataName + " " + title).toLowerCase();
+        const category = product.getAttribute("data-category") || "";
 
-        let name = (
-            product.getAttribute("data-name") || ""
-        ).toLowerCase();
+        const matchesSearch = searchableText.includes(input);
+        const matchesCategory = activeCategory === "all" || category === activeCategory;
+        const visible = matchesSearch && matchesCategory;
 
-        let category = product.getAttribute("data-category");
-
-        let matchesSearch = name.includes(input);
-
-        let matchesCategory =
-            activeCategory === "all" ||
-            category === activeCategory;
-
-        if (matchesSearch && matchesCategory) {
-
-            product.style.display = "";
-
-            found++;
-
-        } else {
-
-            product.style.display = "none";
-
-        }
-
+        product.style.display = visible ? "" : "none";
+        if (visible) found++;
     });
 
-    document.getElementById("noProducts").style.display =
-        found === 0 ? "block" : "none";
+    const emptyMessage = document.getElementById("noProducts");
+    emptyMessage.style.display = found === 0 ? "block" : "none";
+
+    const countLabel = document.getElementById("productCount");
+    if (countLabel) {
+        countLabel.textContent = input || activeCategory !== "all"
+            ? `${found} product${found === 1 ? "" : "s"} found`
+            : `${found} products available`;
+    }
+
+    // Hide categories that genuinely have no products and highlight the selected one.
+    document.querySelectorAll(".sidebar [onclick^='filterCategory']").forEach(button => {
+        const match = button.getAttribute("onclick").match(/filterCategory\('([^']+)'\)/);
+        if (!match) return;
+
+        const category = match[1];
+        const categoryCount = category === "all"
+            ? products.length
+            : [...products].filter(p => p.dataset.category === category).length;
+
+        button.dataset.empty = category !== "all" && categoryCount === 0 ? "true" : "false";
+        button.classList.toggle("active", category === activeCategory);
+    });
 }
 
 function searchProducts() {
@@ -2933,6 +3123,14 @@ function filterCategory(category) {
 
 }
 
+
+function formatCartItemName(name) {
+    return String(name || "")
+        .replace(/([a-z])([A-Z])/g, "$1 $2")
+        .replace(/\s+/g, " ")
+        .trim();
+}
+
 function updateWhatsAppLink() {
 
     if (cart.length === 0) {
@@ -2942,15 +3140,7 @@ function updateWhatsAppLink() {
 
     let loggedUser =
         localStorage.getItem("loggedInUser") ||
-        sessionStorage.getItem("loggedInUser");
-
-    if (!loggedUser) {
-
-        alert("Please login before ordering");
-        openLogin();
-        return;
-
-    }
+        sessionStorage.getItem("loggedInUser") || "Guest";
 
     let orderID = generateOrderID();
     let orderDate = getOrderDate();
@@ -2973,7 +3163,7 @@ function updateWhatsAppLink() {
         total += itemTotal;
 
         message.push(
-            (index + 1) + ". " + item.name,
+            (index + 1) + ". " + formatCartItemName(item.name),
             "Qty: " + item.qty,
             "Price: ₹" + itemTotal,
             ""
@@ -2994,109 +3184,35 @@ function updateWhatsAppLink() {
 }
 
 function openLogin(){
-document.getElementById("loginBox").style.display = "block";
+  document.getElementById("loginBox").style.display = "block";
+  setTimeout(() => document.getElementById("username").focus(), 50);
 }
 
 function closeLogin(){
-document.getElementById("loginBox").style.display = "none";
+  document.getElementById("loginBox").style.display = "none";
 }
-
-function registerUser(){
-
-let user = document.getElementById("username").value.trim();
-let pass = document.getElementById("password").value.trim();
-
-if(user === "" || pass === ""){
-document.getElementById("loginStatus").innerText =
-"Enter username and password";
-return;
-}
-
-if (localStorage.getItem(user)) {
-    document.getElementById("loginStatus").innerText =
-    "Username already exists ❌";
-    return;
-}
-
-localStorage.setItem(user, pass);
-
-document.getElementById("loginStatus").innerText =
-"Account created successfully ✅";
-document.getElementById("username").value = "";
-document.getElementById("password").value = "";
-
-}
-
 
 function loginUser(){
-
-let user = document.getElementById("username").value.trim();
-let pass = document.getElementById("password").value.trim();
-
-let savedPass = localStorage.getItem(user);
-
-if(savedPass === pass){
-
-document.getElementById("loginStatus").innerText =
-"Login successful 🎉";
-
-setTimeout(() => {
-
-document.getElementById("loginStatus").innerText="";
-
-},2000);
-
-localStorage.removeItem("loggedInUser");
-sessionStorage.removeItem("loggedInUser");
-
-if (document.getElementById("rememberMe").checked) {
-
-    localStorage.setItem("loggedInUser", user);
-
-} else {
-
-    sessionStorage.setItem("loggedInUser", user);
-
-}
-
-document.getElementById("loginBtn").innerHTML =
-"👋 Welcome, " + user;
-
-document.querySelector(".logout-btn").style.display =
-"inline-block";
-
-document.getElementById("password").value = "";
-
-setTimeout(()=>{
-closeLogin();
-},1000);
-
-}
-else{
-
-document.getElementById("loginStatus").innerText =
-"Invalid username or password ❌";
-
-}
-
+  const user = document.getElementById("username").value.trim();
+  const status = document.getElementById("loginStatus");
+  if(!user){
+    status.textContent = "Please enter your name.";
+    return;
+  }
+  localStorage.setItem("loggedInUser", user);
+  sessionStorage.removeItem("loggedInUser");
+  document.getElementById("loginBtn").textContent = "Hi, " + user;
+  document.querySelector(".logout-btn").style.display = "inline-flex";
+  status.textContent = "You're signed in. Happy shopping!";
+  setTimeout(closeLogin, 650);
 }
 
 function logoutUser(){
-
-if(!confirm("Are you sure you want to logout?")){
-        return;
-    }
-
-localStorage.removeItem("loggedInUser");
-sessionStorage.removeItem("loggedInUser");
-
-document.getElementById("loginBtn").innerText = "Login";
-
-document.querySelector(".logout-btn").style.display =
-"none";
-
-showToast("👋 Logged out successfully");
-
+  localStorage.removeItem("loggedInUser");
+  sessionStorage.removeItem("loggedInUser");
+  document.getElementById("loginBtn").textContent = "Sign in";
+  document.querySelector(".logout-btn").style.display = "none";
+  showToast("Signed out successfully");
 }
 
 function showToast(message) {
@@ -3162,8 +3278,8 @@ localStorage.getItem("loggedInUser") ||
 sessionStorage.getItem("loggedInUser");
 if(savedUser){
 
-document.querySelector(".login-btn").innerText =
-"👋Welcome " + savedUser;
+document.getElementById("loginBtn").innerText =
+"Hi, " + savedUser;
 
 document.querySelector(".logout-btn").style.display =
 "inline-block";
@@ -3175,6 +3291,8 @@ document.querySelector(".logout-btn").style.display =
 
 }
 
+    updateCartDisplay();
+    applyProductFilters();
 }
 
 function removeItem(index){
@@ -3237,11 +3355,15 @@ function updateCartDisplay() {
     document.getElementById("cartCount").textContent =
         totalItems;
 
-    document.getElementById("items").textContent =
-        totalItems;
+    // Header cart count is the primary live summary.
+    const countElement = document.getElementById("cartCount");
+    if (countElement) countElement.textContent = totalItems;
 
-    document.getElementById("orders").textContent =
-        "₹" + totalPrice.toFixed(2);
+    // Keep compatibility if an older summary element is added back later.
+    const itemsElement = document.getElementById("items");
+    const ordersElement = document.getElementById("orders");
+    if (itemsElement) itemsElement.textContent = totalItems;
+    if (ordersElement) ordersElement.textContent = "₹" + totalPrice.toFixed(2);
 
     renderCartItems();
 
@@ -3407,7 +3529,7 @@ html += `
 
 <div class="item">
 
-<b>${item.name}</b>
+<b>${formatCartItemName(item.name)}</b>
 
 <br><br>
 
@@ -3452,7 +3574,7 @@ cartWindow.document.write(html);
 cartWindow.document.close();
 }
 
-function changeProductQty(name, price, change){
+function changeProductQtyCore(name, price, change){
 
 let existing =
 cart.find(item => item.name === name);
@@ -3509,6 +3631,22 @@ saveCart();
 updateCartDisplay();
 
 }
+
+function syncProductMinusButtons(){
+  document.querySelectorAll('.qty-box').forEach(box => {
+    const buttons = box.querySelectorAll('button');
+    const qty = box.querySelector('span');
+    if (buttons.length && qty) buttons[0].disabled = Number(qty.textContent.trim()) <= 0;
+  });
+}
+
+function changeProductQty(name, price, change){
+  changeProductQtyCore(name, price, change);
+  syncProductMinusButtons();
+}
+
+document.addEventListener('DOMContentLoaded', syncProductMinusButtons);
+window.addEventListener('load', syncProductMinusButtons);
 
 function addRice(name, selectId, change){
 
@@ -3660,7 +3798,7 @@ container.innerHTML += `
 
 <div class="cart-item">
 
-<b>${item.name}</b>
+<b>${formatCartItemName(item.name)}</b>
 
 <br><br>
 
@@ -3697,6 +3835,13 @@ document.getElementById(
 
 }
 
+document.addEventListener("keydown", function(event){
+  if(event.key === "Escape"){
+    closeCart();
+    closeLogin();
+  }
+});
+
 </script>
 
 <!-- CART PANEL -->
@@ -3704,7 +3849,7 @@ document.getElementById(
 
 <div class="cart-header">
 <h2>🛒 Your Cart</h2>
-<button class="close-cart" onclick="closeCart()">✖</button>
+<button class="close-cart" type="button" onclick="closeCart()" aria-label="Close cart">×</button>
 </div>
 
 <div id="cartItems"></div>
@@ -3721,6 +3866,31 @@ Total: ₹<span id="cartTotal">0</span>
 </div>
 
 </div>
+
+
+<section class="store-info" aria-labelledby="storeInfoTitle">
+    <h2 id="storeInfoTitle">🏪 Store & Ordering Information</h2>
+    <p class="store-info-intro">For accurate availability and order details, please confirm with Lalitha Traders before placing your order.</p>
+    <div class="store-info-grid">
+        <div class="store-info-item">
+            <strong>🕒 Store hours</strong>
+            <span>Mon–Sun, 7:00 AM – 8:00 PM.</span>
+        </div>
+        <div class="store-info-item">
+            <strong>🚚 Delivery area</strong>
+            <span>We currently deliver exclusively within a 1 km radius of Lalitha Traders.</span>
+        </div>
+        <div class="store-info-item">
+            <strong>🛍️ Pickup</strong>
+            <span>Pickup arrangements can be confirmed directly with the shop.</span>
+        </div>
+        <div class="store-info-item">
+            <strong>💳 Minimum order & charges</strong>
+            <span>• Minimum Order Value: ₹1,000 (orders below ₹1,000 cannot be checked out).<br>
+• Delivery Fee: Flat ₹20 on orders of ₹1,000 and above.</span>
+        </div>
+    </div>
+</section>
 
 <footer>
 
@@ -3866,89 +4036,6 @@ Azhagiya asura azhagiya asura
 Athumeera aasayillayaa..
 Kanavil vandhu yendhan viralgal
 Kichu kichu..dara dara raa-->
-
-<!-- ~~~~~~~~~MUNBE VA~~~~~~~~~~~
-Munbae vaa en anbae vaa
-Oonae vaa uyirae vaa
-Munbae vaa en anbae vaa
-Poo poovaai poopom vaa..
-
-Naan naana keten ennai naanae
-Naan neeya nenjam sonnathae
-
-Munbae vaa en anbae vaa
-Oonae vaa uyirae vaa
-Munbae vaa en anbae vaa
-Poo poovaai poopom vaa..
-
-Rango rangoli kolangal nee pottai
-Kolam pottaval kaigal vaazhi
-Valaiyal satham
-Jal jal
-Rango rangoli kolangal nee pottai
-Kolam pottaval kaigal vaazhi
-Sunthara malligai
-Santhana malligai
-Sithira Punnagai vannam minna..
-
-: Poo vaithaai poo vaithaai
-Nee poovaikoor poo vaithaai
-Mana poovaithu poovaithu
-Poovaikkul thee vaithaai oohh ohh
-
-Nee nee nee mazhaiyil aada
-Naan naan nnan nanainthae vaada
-En naanathil un ratham
-Naadikkul un satham
-Uyire ohoooo
-
-Thozhil oru sila naalil
-Thaniyena aanal tharaiyinil meen.hmm..hmm
-
-Munbae vaa en anbae vaa
-Oonae vaa uyirae vaa
-Munbae vaa en anbae vaa
-Male : Poo poovaai poopom vaa..
-
-Munbae vaa en anbae vaa
-Poo poovaai poopom vaa..ahhh
-
-Nilavidam vaadagai vaangi
-Vizhi veetinil kudi vaikkalaama..?
-Naam vaazhum veetukul
-Veraarum vanthalae thaguma..?
-
-Then malai thekkukku neethaan..
-Unthan thozhgalil idam tharalaama..?
-Naan saayum thozhmel
-Veraarum sainthalae..thaguma ..?
-
-Neerum senbula cherum
-Kalanthathu polae kalanthavar naam..
-
-Munbae vaa en anbae vaa
-Oonae vaa uyirae vaa
-Munbae vaa en anbae vaa
-Poo poovaai poopom vaa..
-
-Naan naana keten ennai naanae
-Naan neeya nenjam sonnathae
-
-Munbae vaa en anbae vaa
-Oonae vaa uyirae vaa
-Munbae vaa en anbae vaa
-Poo poovaai poopom vaa..
-
-{Rango rangoli kolangal nee pottai
-Kolam pottaval kaigal vaazhi
-Valaiyal satham
-Jal jal
-Rango rangoli kolangal nee pottai
-Kolam pottaval kaigal vaazhi
-Sunthara malligai
-Santhana malligai
-Sithira Punnagai vannam minna..}-->
-
 
 <!--       _
        .__(.)< (MEOW)
